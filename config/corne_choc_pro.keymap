@@ -81,6 +81,13 @@
       bindings = <&kp DE_BSLH>, <&kp DE_PIPE>;
       mods = <(MOD_LSFT|MOD_RSFT)>;
     };
+    quotes: SingleAndDouble {
+      compatible = "zmk,behavior-mod-morph";
+      #binding-cells = <0>;
+      bindings = <&kp DE_APOS>, <&kp DE_DQT>;
+      mods = <(MOD_LSFT|MOD_RSFT)>;
+      keep-mods = <(MOD_LSFT|MOD_RSFT)>;
+    };
   };
 };
 
@@ -112,7 +119,7 @@
             display-name = "SYMBOL";
             bindings = <
                 &trans &trans &trans &trans &trans &trans &studio_unlock &trans   &kp DE_AMPS &kp DE_LBKT &kp DE_EQUAL &kp DE_RBKT &kp DE_BSLH  &kp DE_GRAVE
-                &trans &trans &trans &trans &trans &trans &bt BT_SEL 0   &trans   &kp DE_LT   &kp DE_LPAR &kp DE_AT    &kp DE_RPAR &kp DE_GT    &kp DE_PIPE
+                &trans &trans &trans &trans &trans &trans &bt BT_SEL 0   &trans   &kp DE_LT   &kp DE_LPAR &kp DE_AT    &kp DE_RPAR &kp DE_GT    &quotes
                 &trans &trans &trans &trans &trans &trans                         &kp DE_DLLR &kp DE_LBRC &kp DE_ASTRK &kp DE_RBRC &kp DE_CARET &kp DE_PLUS
                                      &trans &trans &trans                         &trans      &trans      &trans
             >;
