@@ -38,4 +38,13 @@ config I2C
 config ZMK_MAX17048
     default y
 
+config ZMK_COMBO_MAX_COMBOS_PER_KEY
+    default 16
+
+config ZMK_COMBO_MAX_PRESSED_COMBOS
+    default 4
+
+config ZMK_COMBO_MAX_KEYS_PER_COMBO
+    default 4
+
 endif # BOARD_CORNE_CHOC_PRO_LEFT || BOARD_CORNE_CHOC_PRO_RIGHT
