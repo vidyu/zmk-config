@@ -101,7 +101,7 @@
                 &kp TAB       &kp DE_Q       &kp DE_W        &kp DE_E        &kp DE_R       &kp DE_T     &kp C_MUTE   &rgb_ug RGB_TOG &kp DE_Z &kp DE_U       &kp DE_I        &kp DE_O        &kp DE_P           &kp BSPC
                 &mt HYPER ESC &hml LALT DE_A &hml LCTRL DE_S &hml LSHFT DE_D &hml LGUI DE_F &kp DE_G     &kp C_BRI_DN &kp C_BRI_UP    &kp DE_H &hmr RGUI DE_J &hmr RSHFT DE_K &hmr RCTRL DE_L &hmr RALT DE_TILDE &bsl
                 &kp LSHFT     &kp DE_Y       &kp DE_X        &kp DE_C        &kp DE_V       &kp DE_B                                  &kp DE_N &kp DE_M       &kp DE_COMMA    &kp DE_DOT      &kp DE_MINUS       &sq
-                                                             &kp LGUI        &mo 2          &kp SPACE                                 &kp RET  &lt 1 DE_HASH  &kp RALT
+                                                             &kp LGUI        &lt 2 SYMBOL   &kp SPACE                                 &kp RET  &lt 1 DE_HASH  &kp RALT
             >;
         };
 
