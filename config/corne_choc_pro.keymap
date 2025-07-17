@@ -110,7 +110,7 @@
             bindings = <
                 &trans &trans    &trans    &trans    &trans    &trans    &trans   &trans &trans   &trans   &trans   &trans    &trans   &trans
                 &trans &kp DE_N6 &kp DE_N7 &kp DE_N8 &kp DE_N9 &kp DE_N0 &trans   &trans &kp LEFT &kp DOWN &kp UP   &kp RIGHT &trans   &trans
-                &trans &kp DE_N1 &kp DE_N2 &kp DE_N3 &kp DE_N4 &kp DE_N5                 &trans   &trans   &trans   &trans    &trans   &kp DE_QMARK
+                &trans &kp DE_N1 &kp DE_N2 &kp DE_N3 &kp DE_N4 &kp DE_N5                 &trans   &trans   &trans   &trans    &trans   &trans
                                            &trans    &trans    &trans                    &trans   &trans   &trans
             >;
         };
