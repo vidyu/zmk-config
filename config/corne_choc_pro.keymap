@@ -162,6 +162,11 @@
             key-positions = <RT4 RT5>;
             bindings = <&kp DE_EXCL>;
         };
+        combo_at {
+            timeout-ms = <50>;
+            key-positions = <RT3 RT4>;
+            bindings = <&kp DE_AT>;
+        };
     };
 };
 
