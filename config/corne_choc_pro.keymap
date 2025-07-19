@@ -122,6 +122,16 @@
             key-positions = <RB1 RB3>;
             bindings = <&kp DE_EQUAL>;
         };
+        combo_r_amps {
+            timeout-ms = <50>;
+            key-positions = <RT0 RT1>;
+            bindings = <&kp DE_AMPS>;
+        };
+        combo_r_dllr {
+            timeout-ms = <50>;
+            key-positions = <RB0 RB1>;
+            bindings = <&kp DE_DLLR>;
+        };
     };
 };
 
@@ -145,7 +155,7 @@
                 &trans &trans    &kp DE_N7 &kp DE_N8 &kp DE_N9 &trans &trans   &trans &trans   &trans   &trans   &trans    &trans   &trans
                 &trans &kp DE_N0 &kp DE_N4 &kp DE_N5 &kp DE_N6 &trans &trans   &trans &kp LEFT &kp DOWN &kp UP   &kp RIGHT &trans   &trans
                 &trans &trans    &kp DE_N1 &kp DE_N2 &kp DE_N3 &trans                 &trans   &trans   &trans   &trans    &trans   &trans
-                                           &trans    &trans    &trans                    &trans   &trans   &trans
+                                           &trans    &trans    &trans                 &trans   &trans   &trans
             >;
         };
 
