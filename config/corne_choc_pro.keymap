@@ -120,7 +120,7 @@
         combo_r_astrk {
             timeout-ms = <50>;
             key-positions = <RB1 RB3>;
-            bindings = <&kp DE_EQUAL>;
+            bindings = <&kp DE_ASTRK>;
         };
         combo_r_amps {
             timeout-ms = <50>;
@@ -131,6 +131,11 @@
             timeout-ms = <50>;
             key-positions = <RB0 RB1>;
             bindings = <&kp DE_DLLR>;
+        };
+        combo_r_quote {
+            timeout-ms = <50>;
+            key-positions = <RM4 RM5>;
+            bindings = <&quotes>;
         };
     };
 };
