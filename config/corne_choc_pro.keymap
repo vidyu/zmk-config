@@ -71,9 +71,8 @@
     sq: SlashQuestion {
       compatible = "zmk,behavior-mod-morph";
       #binding-cells = <0>;
-      bindings = <&kp DE_SLASH>, <&kp MINUS>;
+      bindings = <&kp DE_SLASH>, <&kp DE_QMARK>;
       mods = <(MOD_LSFT|MOD_RSFT)>;
-      keep-mods = <(MOD_LSFT|MOD_RSFT)>;
     };
     bsl: BackslashPipe {
       compatible = "zmk,behavior-mod-morph";
@@ -84,9 +83,8 @@
     quotes: SingleAndDouble {
       compatible = "zmk,behavior-mod-morph";
       #binding-cells = <0>;
-      bindings = <&kp DE_APOS>, <&kp DE_DQT>;
+      bindings = <&kp DE_APOS>, <&kp DE_DOUBLE_QUOTES>;
       mods = <(MOD_LSFT|MOD_RSFT)>;
-      keep-mods = <(MOD_LSFT|MOD_RSFT)>;
     };
   };
 };
