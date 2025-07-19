@@ -107,32 +107,47 @@
             key-positions = <RB2 RB3>;
             bindings = <&kp DE_RBRC>;
         };
-        combo_r_eql {
+        combo_lt {
+            timeout-ms = <50>;
+            key-positions = <RM0 RM1>;
+            bindings = <&kp DE_LT>;
+        };
+        combo_gt {
+            timeout-ms = <50>;
+            key-positions = <RM3 RM4>;
+            bindings = <&kp DE_GT>;
+        };
+        combo_caret {
+            timeout-ms = <50>;
+            key-positions = <RB3 RB4>;
+            bindings = <&kp DE_CARET>;
+        };
+        combo_eql {
             timeout-ms = <50>;
             key-positions = <RT1 RT3>;
             bindings = <&kp DE_EQUAL>;
         };
-        combo_r_colon {
+        combo_colon {
             timeout-ms = <50>;
             key-positions = <RM1 RM3>;
             bindings = <&kp DE_COLON>;
         };
-        combo_r_astrk {
+        combo_astrk {
             timeout-ms = <50>;
             key-positions = <RB1 RB3>;
             bindings = <&kp DE_ASTRK>;
         };
-        combo_r_amps {
+        combo_amps {
             timeout-ms = <50>;
             key-positions = <RT0 RT1>;
             bindings = <&kp DE_AMPS>;
         };
-        combo_r_dllr {
+        combo_dllr {
             timeout-ms = <50>;
             key-positions = <RB0 RB1>;
             bindings = <&kp DE_DLLR>;
         };
-        combo_r_quote {
+        combo_quote {
             timeout-ms = <50>;
             key-positions = <RM4 RM5>;
             bindings = <&quotes>;
