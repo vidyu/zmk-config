@@ -1,0 +1,204 @@
+parse_config:
+  zmk_additional_includes:
+    - "boards/arm/corne_choc_pro/corne_choc_pro-layouts.dtsi"
+  zmk_preamble: |
+    #define KEYMAP_DRAWER
+    #include "key-labels.h"
+
+  zmk_remove_keycode_prefix:
+    - DE_
+
+  raw_binding_map:
+    "&sys_reset": Reset
+    "&bootloader": Boot
+    "&caps_word": Caps Word
+
+    # German number keys with shift symbols
+    "&kp DE_N1": { "t": "1", "s": "!" }
+    "&kp DE_N2": { "t": "2", "s": "\"" }
+    "&kp DE_N3": { "t": "3", "s": "§" }
+    "&kp DE_N4": { "t": "4", "s": "$" }
+    "&kp DE_N5": { "t": "5", "s": "%" }
+    "&kp DE_N6": { "t": "6", "s": "&" }
+    "&kp DE_N7": { "t": "7", "s": "/" }
+    "&kp DE_N8": { "t": "8", "s": "(" }
+    "&kp DE_N9": { "t": "9", "s": ")" }
+    "&kp DE_N0": { "t": "0", "s": "=" }
+
+    "&mt HYPER ESC": { "t": "Esc", "h": "Hyper" }
+    "&studio_unlock": "Studio"
+
+    # Bluetooth bindings
+    "&bt BT_SEL 0": BT 1
+    "&bt BT_SEL 1": BT 2
+    "&bt BT_SEL 2": BT 3
+    "&bt BT_SEL 3": BT 4
+    "&bt BT_CLR": "BT Clear"
+
+    # Copy/Cut/Paste (very commonly used)
+    "&kp LC(INS)": Copy
+    "&kp LC(X)": Cut
+    "&kp LS(INS)": Paste
+    "&kp LC(C)": Copy
+    "&kp LC(V)": Paste
+    "&kp LC(Z)": Undo
+    "&kp LC(Y)": Redo
+
+    # Mouse actions
+    "&mmv MOVE_UP": "Mouse ↑"
+    "&mmv MOVE_DOWN": "Mouse ↓"
+    "&mmv MOVE_LEFT": "Mouse ←"
+    "&mmv MOVE_RIGHT": "Mouse →"
+    "&mkp LCLK": "Left Click"
+    "&mkp RCLK": "Right Click"
+    "&mkp MCLK": "Middle Click"
+    "&mkp MB4": "Back"
+    "&mkp MB5": "Forward"
+
+    # Scroll actions
+    "&msc SCRL_UP": "Scroll ↑"
+    "&msc SCRL_DOWN": "Scroll ↓"
+    "&msc SCRL_LEFT": "Scroll ←"
+    "&msc SCRL_RIGHT": "Scroll →"
+
+    # Media controls (very useful for keyboards)
+    "&kp C_PP": "Play/Pause"
+    "&kp C_NEXT": "Next Track"
+    "&kp C_PREV": "Prev Track"
+    "&kp C_VOL_UP": "Vol +"
+    "&kp C_VOL_DN": "Vol -"
+    "&kp C_MUTE": "Mute"
+
+    # Navigation (useful for coding/text editing)
+    "&kp HOME": "Home"
+    "&kp END": "End"
+    "&kp PG_UP": "Page Up"
+    "&kp PG_DN": "Page Down"
+
+    # Window management (macOS specific, very handy)
+    "&kp LG(TAB)": "App Switch"
+    "&kp LG(GRAVE)": "Win Switch"
+    "&kp LG(M)": "Minimize"
+    "&kp LG(W)": "Close Tab"
+    "&kp LG(T)": "New Tab"
+    "&kp LG(LS(T))": "Reopen Tab"
+
+    # Screenshots (macOS)
+    "&kp LG(LS(N3))": "Screenshot"
+    "&kp LG(LS(N4))": "Screenshot Area"
+    "&kp LG(LS(N5))": "Screenshot Touch Bar"
+
+  trans_legend: { "t": "", "type": "trans" }
+
+  zmk_combos:
+    combo_eql: { align: top, o: 0.15 }
+    combo_colon: { align: top, o: 0.05 }
+    combo_astrk: { align: bottom, o: 0.15 }
+
+  zmk_keycode_map:
+    # custom mappings
+    LALT: Alt
+    RALT: Alt
+    LCTRL: Ctrl
+    RCTRL: Ctrl
+    LGUI: Gui
+    RGUI: Gui
+    LSHFT: Shift
+    RSHFT: Shift
+
+    BSPC: Bspc
+    DEL: Del
+    ESC: Esc
+    RET: Enter
+    SPACE: Spc
+    TAB: Tab
+
+    PG_UP: PgUp
+    PG_DN: PgDn
+    INS: Ins
+    HOME: Home
+    END: End
+
+    UP: ↑
+    DOWN: ↓
+    LEFT: ←
+    RIGHT: →
+
+    C_MUTE: $$mdi:volume-off$$
+    C_PP: $$mdi:play-pause$$
+    C_VOL_UP: $$mdi:volume-high$$
+    C_VOL_DN: $$mdi:volume-medium$$
+    C_NEXT: $$mdi:skip-forward$$
+    C_PREV: $$mdi:skip-backward$$
+
+    # defaults
+    AMPERSAND: "&"
+    AMPS: "&"
+    APOS: "'"
+    APOSTROPHE: "'"
+    ASTERISK: "*"
+    ASTRK: "*"
+    AT: "@"
+    AT_SIGN: "@"
+    BACKSLASH: \
+    BSLH: \
+    CARET: ^
+    COLON: ":"
+    COMMA: ","
+    DLLR: $
+    DOLLAR: $
+    DOT: .
+    DOUBLE_QUOTES: '"'
+    DQT: '"'
+    EQUAL: "="
+    EXCL: "!"
+    EXCLAMATION: "!"
+    FSLH: /
+    GRAVE: "`"
+    GREATER_THAN: ">"
+    GT: ">"
+    HASH: "#"
+    LBKT: "["
+    LBRC: "{"
+    LEFT_BRACE: "{"
+    LEFT_BRACKET: "["
+    LEFT_PARENTHESIS: (
+    LESS_THAN: <
+    LPAR: (
+    LT: <
+    MINUS: "-"
+    NON_US_BACKSLASH: \
+    NON_US_BSLH: "|"
+    NON_US_HASH: "#"
+    NUHS: "#"
+    PERCENT: "%"
+    PERIOD: .
+    PIPE: "|"
+    PIPE2: "|"
+    PLUS: +
+    POUND: "#"
+    PRCNT: "%"
+    QMARK: "?"
+    QUESTION: "?"
+    RBKT: "]"
+    RBRC: "}"
+    RIGHT_BRACE: "}"
+    RIGHT_BRACKET: "]"
+    RIGHT_PARENTHESIS: )
+    RPAR: )
+    SEMI: ;
+    SEMICOLON: ;
+    SINGLE_QUOTE: "'"
+    SLASH: /
+    SQT: "'"
+    STAR: "*"
+    TILDE: "~"
+    TILDE2: "~"
+    UNDER: _
+    UNDERSCORE: _
+    EMOJI: 😀
+
+draw_config:
+  append_colon_to_layer_header: false
+  dark_mode: auto
+  footer_text: "vidyu/zmk-config"
