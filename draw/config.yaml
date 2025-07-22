@@ -88,6 +88,9 @@ parse_config:
     "&kp LG(LS(N3))": "Screenshot"
     "&kp LG(LS(N4))": "Screenshot Area"
     "&kp LG(LS(N5))": "Screenshot Touch Bar"
+    
+    # Tools
+    "&kp LG(SPACE)": "🔎"
 
   trans_legend: { "t": "", "type": "trans" }
 
