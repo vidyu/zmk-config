@@ -24,6 +24,7 @@ parse_config:
     "&kp DE_N8": { "t": "8", "s": "(" }
     "&kp DE_N9": { "t": "9", "s": ")" }
     "&kp DE_N0": { "t": "0", "s": "=" }
+    "&td_sym": { "t": "*", "h": "SYMBOL", "right": ":"}
 
     "&mt HYPER ESC": { "t": "Esc", "h": "Hyper" }
     "&studio_unlock": "Studio"
@@ -94,6 +95,7 @@ parse_config:
     combo_eql: { align: top, o: 0.15 }
     combo_colon: { align: top, o: 0.05 }
     combo_astrk: { align: bottom, o: 0.15 }
+    combo_prcnt: { align: bottom, o: 1.35 }
 
   zmk_keycode_map:
     # custom mappings
