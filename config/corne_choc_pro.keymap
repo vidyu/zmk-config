@@ -91,8 +91,9 @@
     td_sym: TapDanceSymbolColon {
       compatible = "zmk,behavior-tap-dance";
       #binding-cells = <0>;
-      tapping-term-ms = <200>;
-      bindings = <&lt 2 DE_ASTRK>, <&kp DE_COLON>;
+      tapping-term-ms = <100>;
+      /* bindings = <&lt 2 DE_ASTRK>, <&kp DE_COLON>; */
+      bindings = <&lt 1 DE_ASTRK>, <&kp DE_COLON>;
     };
   };
 };
@@ -221,7 +222,7 @@
                 &kp TAB       &kp DE_Q       &kp DE_W        &kp DE_E        &kp DE_R       &kp DE_T     &kp C_MUTE   &kp EMOJI    &kp DE_Z &kp DE_U       &kp DE_I        &kp DE_O        &kp DE_P     &bspcgrave
                 &mt HYPER ESC &hml LALT DE_A &hml LCTRL DE_S &hml LSHFT DE_D &hml LGUI DE_F &kp DE_G     &kp C_BRI_DN &kp C_BRI_UP &kp DE_H &hmr RGUI DE_J &hmr RSHFT DE_K &hmr RCTRL DE_L &pltild      &bsl
                 &kp LG(SPACE) &kp DE_Y       &kp DE_X        &kp DE_C        &kp DE_V       &kp DE_B                               &kp DE_N &kp DE_M       &kp DE_COMMA    &kp DE_DOT      &kp DE_MINUS &sq
-                                                             &kp LGUI        &lt 1 DE_HASH  &kp SPACE                              &kp RET  &td_sym   &kp RALT
+                                                             &kp LGUI        &lt 1 DE_HASH  &kp SPACE                              &kp RET  &td_sym        &kp RALT
             >;
         };
 
@@ -235,15 +236,15 @@
             >;
         };
 
-        raise_layer {
-            display-name = "SYMBOL";
-            bindings = <
-                &trans &trans &trans &trans &trans &trans &studio_unlock &trans   &kp DE_AMPS &kp DE_LBKT &kp DE_EQUAL &kp DE_RBKT &kp DE_BSLH  &kp DE_GRAVE
-                &trans &trans &trans &trans &trans &trans &bt BT_SEL 0   &trans   &kp DE_LT   &kp DE_LPAR &kp DE_AT    &kp DE_RPAR &kp DE_GT    &quotes
-                &trans &trans &trans &trans &trans &trans                         &kp DE_DLLR &kp DE_LBRC &kp DE_ASTRK &kp DE_RBRC &kp DE_CARET &kp DE_PLUS
-                                     &trans &trans &trans                         &trans      &trans      &trans
-            >;
-        };
+        /* raise_layer { */
+        /*     display-name = "SYMBOL"; */
+        /*     bindings = < */
+        /*         &trans &trans &trans &trans &trans &trans &studio_unlock &trans   &kp DE_AMPS &kp DE_LBKT &kp DE_EQUAL &kp DE_RBKT &kp DE_BSLH  &kp DE_GRAVE */
+        /*         &trans &trans &trans &trans &trans &trans &bt BT_SEL 0   &trans   &kp DE_LT   &kp DE_LPAR &kp DE_AT    &kp DE_RPAR &kp DE_GT    &quotes */
+        /*         &trans &trans &trans &trans &trans &trans                         &kp DE_DLLR &kp DE_LBRC &kp DE_ASTRK &kp DE_RBRC &kp DE_CARET &kp DE_PLUS */
+        /*                              &trans &trans &trans                         &trans      &trans      &trans */
+        /*     >; */
+        /* }; */
     };
 };
 

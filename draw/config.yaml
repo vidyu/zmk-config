@@ -24,7 +24,7 @@ parse_config:
     "&kp DE_N8": { "t": "8", "s": "(" }
     "&kp DE_N9": { "t": "9", "s": ")" }
     "&kp DE_N0": { "t": "0", "s": "=" }
-    "&td_sym": { "t": "*", "h": SYMBOL, "right": ":"}
+    "&td_sym": { "t": "*", "h": NUMBER, "right": ":"}
 
     "&mt HYPER ESC": { "t": "Esc", "h": "Hyper" }
     "&studio_unlock": "Studio"
