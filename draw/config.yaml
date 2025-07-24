@@ -24,7 +24,9 @@ parse_config:
     "&kp DE_N8": { "t": "8", "s": "(" }
     "&kp DE_N9": { "t": "9", "s": ")" }
     "&kp DE_N0": { "t": "0", "s": "=" }
-    "&td_sym": { "t": "*", "h": NUMBER, "right": ":"}
+
+    # Tap Dances
+    "&td_ret": { "t": "Enter", "h": ":"}
 
     "&mt HYPER ESC": { "t": "Esc", "h": "Hyper" }
     "&studio_unlock": "Studio"
@@ -61,6 +63,11 @@ parse_config:
     "&msc SCRL_DOWN": "Scroll ↓"
     "&msc SCRL_LEFT": "Scroll ←"
     "&msc SCRL_RIGHT": "Scroll →"
+
+    "&up": {t: ↑, s: Mouse ↑}
+    "&left": {t: ←, s: Mouse ←}
+    "&down": {t: ↓, s: Mouse ↓}
+    "&right": {t: →, s: Mouse →}
 
     # Media controls (very useful for keyboards)
     "&kp C_PP": "Play/Pause"
