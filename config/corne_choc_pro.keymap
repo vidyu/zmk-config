@@ -275,10 +275,10 @@
         lower_layer {
             display-name = "NUMBER";
             bindings = <
-                &trans &kp DE_N7 &kp DE_N8 &kp DE_N9 &trans    &trans &trans   &rgb_ug RGB_TOG &trans &mkp LCLK    &mkp RCLK      &trans &trans &trans
-                &trans &kp DE_N4 &kp DE_N5 &kp DE_N6 &kp DE_N0 &trans &trans   &trans          &left  &down        &up            &right  &trans &trans
-                &trans &kp DE_N1 &kp DE_N2 &kp DE_N3 &trans    &trans                          &trans &msc SCRL_UP &msc SCRL_DOWN &trans &trans &trans
-                                           &trans    &trans    &trans                          &trans &trans       &trans
+                &trans &kp DE_N7 &kp DE_N8 &kp DE_N9 &trans    &trans &kp PASSWORD &rgb_ug RGB_TOG &trans &mkp LCLK    &mkp RCLK      &trans &trans &trans
+                &trans &kp DE_N4 &kp DE_N5 &kp DE_N6 &kp DE_N0 &trans &trans       &trans          &left  &down        &up            &right  &trans &trans
+                &trans &kp DE_N1 &kp DE_N2 &kp DE_N3 &trans    &trans                              &trans &msc SCRL_UP &msc SCRL_DOWN &trans &trans &trans
+                                           &trans    &trans    &trans                              &trans &trans       &trans
             >;
         };
 

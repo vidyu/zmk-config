@@ -98,6 +98,7 @@ parse_config:
     
     # Tools
     "&kp LG(SPACE)": "🔎"
+    "&kp PASSWORD": "🔐"
 
   trans_legend: { "t": "", "type": "trans" }
 
