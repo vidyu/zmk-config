@@ -27,6 +27,7 @@ parse_config:
 
     # Tap Dances
     "&td_ret": { "t": "Enter", "h": ":"}
+    "&td_quotes": { "t": "'", "h": "\"", "s": "`"}
 
     "&mt HYPER ESC": { "t": "Esc", "h": "Hyper" }
     "&studio_unlock": "Studio"
