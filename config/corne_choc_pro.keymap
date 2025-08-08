@@ -270,10 +270,10 @@
         default_layer {
             display-name = "QWERTZ";
             bindings = <
-                &kp DEL       &kp DE_Q       &kp DE_W        &kp DE_E        &kp DE_R       &kp DE_T     &kp C_MUTE   &kp EMOJI    &kp DE_Z &kp DE_U       &kp DE_I        &kp DE_O        &kp DE_P     &bspcgrave
+                &kp TAB       &kp DE_Q       &kp DE_W        &kp DE_E        &kp DE_R       &kp DE_T     &kp C_MUTE   &kp EMOJI    &kp DE_Z &kp DE_U       &kp DE_I        &kp DE_O        &kp DE_P     &bspcgrave
                 &mt HYPER ESC &hml LALT DE_A &hml LCTRL DE_S &hml LSHFT DE_D &hml LGUI DE_F &kp DE_G     &kp C_BRI_DN &kp C_BRI_UP &kp DE_H &hmr RGUI DE_J &hmr RSHFT DE_K &hmr RCTRL DE_L &pltild      &bsl
                 &td_quotes    &kp DE_Y       &kp DE_X        &kp DE_C        &kp DE_V       &kp DE_B                               &kp DE_N &kp DE_M       &kp DE_COMMA    &kp DE_DOT      &kp DE_MINUS &sq
-                                                             &kp RALT        &lt 1 DE_HASH  &kp SPACE                              &td_ret  &lt 1 DE_ASTRK &kp TAB 
+                                                             &kp RALT        &lt 1 DE_HASH  &kp SPACE                              &td_ret  &lt 1 DE_ASTRK &kp DEL 
             >;
         };
 
