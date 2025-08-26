@@ -15,7 +15,7 @@ parse_config:
 
     # German number keys with shift symbols
     "&kp DE_N1": { "t": "1", "s": "!" }
-    "&kp DE_N2": { "t": "2", "s": "\"" }
+    "&kp DE_N2": { "t": "2", "s": '"' }
     "&kp DE_N3": { "t": "3", "s": "§" }
     "&kp DE_N4": { "t": "4", "s": "$" }
     "&kp DE_N5": { "t": "5", "s": "%" }
@@ -26,8 +26,8 @@ parse_config:
     "&kp DE_N0": { "t": "0", "s": "=" }
 
     # Tap Dances
-    "&td_ret": { "t": "Enter", "h": ":"}
-    "&td_quotes": { "t": "'", "h": "\"", "s": "`"}
+    "&td_layer": { "t": "*", "h": NUMBER, "s": ":" }
+    "&td_quotes": { "t": "'", "h": '"', "s": "`" }
 
     "&mt HYPER ESC": { "t": "Esc", "h": "Hyper" }
     "&studio_unlock": "Studio"
@@ -65,10 +65,10 @@ parse_config:
     "&msc SCRL_LEFT": "Scroll ←"
     "&msc SCRL_RIGHT": "Scroll →"
 
-    "&up": {t: ↑, s: Mouse ↑}
-    "&left": {t: ←, s: Mouse ←}
-    "&down": {t: ↓, s: Mouse ↓}
-    "&right": {t: →, s: Mouse →}
+    "&up": { t: ↑, s: Mouse ↑ }
+    "&left": { t: ←, s: Mouse ← }
+    "&down": { t: ↓, s: Mouse ↓ }
+    "&right": { t: →, s: Mouse → }
 
     # Media controls (very useful for keyboards)
     "&kp C_PP": "Play/Pause"
@@ -96,7 +96,7 @@ parse_config:
     "&kp LG(LS(N3))": "Screenshot"
     "&kp LG(LS(N4))": "Screenshot Area"
     "&kp LG(LS(N5))": "Screenshot Touch Bar"
-    
+
     # Tools
     "&kp LG(SPACE)": "🔎"
     "&kp PASSWORD": "🔐"
