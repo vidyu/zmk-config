@@ -26,8 +26,8 @@ parse_config:
     "&kp DE_N0": { "t": "0", "s": "=" }
 
     # Tap Dances
-    "&td_layer": { "t": "*", "h": NUMBER, "s": ":" }
     "&td_quotes": { "t": "'", "h": '"', "s": "`" }
+    "&td_layer_ralt": { "t": R_Alt, "h": MOUSE }
 
     "&mt HYPER ESC": { "t": "Esc", "h": "Hyper" }
     "&studio_unlock": "Studio"
@@ -104,8 +104,8 @@ parse_config:
   trans_legend: { "t": "", "type": "trans" }
 
   zmk_combos:
+    combo_colon: { align: bottom, o: 0.25 }
     combo_eql: { align: top, o: 0.15 }
-    combo_colon: { align: top, o: 0.05 }
     combo_astrk: { align: bottom, o: 0.15 }
     combo_prcnt: { align: bottom, o: 1.35 }
 
