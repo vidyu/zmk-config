@@ -22,8 +22,9 @@
 
 #define THUMBS LH2 LH1 LH0 RH0 RH1 RH2
 
-
-
+&caps_word {
+    continue-list = <DE_MINUS LS(DE_MINUS) BSPC>;
+};
 
 / {
     chosen {
@@ -55,6 +56,13 @@
             bindings = <&kp>, <&kp>;
             hold-trigger-key-positions = < KEYS_L THUMBS >; // List of keys on the left side of the keyboard
             hold-trigger-on-release;
+        };
+        cwl: CapsWordLayer {
+            compatible = "zmk,behavior-hold-tap";
+            #binding-cells = <2>;
+            flavor = "hold-preferred";
+            tapping-term-ms = <200>;
+            bindings = <&mo>, <&caps_word>;
         };
     };
 };
@@ -255,7 +263,7 @@
                 &kp TAB       &kp DE_Q       &kp DE_W        &kp DE_E        &kp DE_R       &kp DE_T     &kp C_MUTE   &kp EMOJI    &kp DE_Z &kp DE_U       &kp DE_I        &kp DE_O        &kp DE_P     &bspcgrave
                 &mt HYPER ESC &hml LALT DE_A &hml LCTRL DE_S &hml LSHFT DE_D &hml LGUI DE_F &kp DE_G     &kp C_BRI_DN &kp C_BRI_UP &kp DE_H &hmr RGUI DE_J &hmr RSHFT DE_K &hmr RCTRL DE_L &pltild      &bsl
                 &td_quotes    &kp DE_Y       &kp DE_X        &kp DE_C        &kp DE_V       &kp DE_B                               &kp DE_N &kp DE_M       &kp DE_COMMA    &kp DE_DOT      &kp DE_MINUS &sq
-                                                             &td_layer_ralt  &lt 1 DE_HASH  &kp SPACE                              &kp RET  &lt 1 DE_ASTRK &lt 2 DEL 
+                                                             &td_layer_ralt  &lt 1 DE_HASH  &kp SPACE                              &kp RET  &lt 1 DE_ASTRK &cwl 2 DEL 
             >;
         };
 
