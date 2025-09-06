@@ -25,6 +25,9 @@ parse_config:
     "&kp DE_N9": { "t": "9", "s": ")" }
     "&kp DE_N0": { "t": "0", "s": "=" }
 
+    # Layers
+    "&nav_word 2": { "t": MOUSE }
+    "&num_word 1": { "t": NUMBER }
     # Tap Dances
     "&td_quotes": { "t": "'", "h": '"', "s": "`" }
     "&td_layer_ralt": { "t": R_Alt, "h": MOUSE }

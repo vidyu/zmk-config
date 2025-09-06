@@ -8,6 +8,7 @@
 #include <dt-bindings/zmk/keys.h>
 #include <dt-bindings/zmk/bt.h>
 #include <dt-bindings/zmk/rgb.h>
+#include <behaviors/num_word.dtsi>
 
 #ifndef KEYMAP_DRAWER
 #include "keys_de.h"
@@ -26,12 +27,26 @@
     continue-list = <DE_MINUS LS(DE_MINUS) BSPC>;
 };
 
+&num_word {
+  continue-list = <LEFT RIGHT UP DOWN BSPC DEL DE_DOT DE_COMMA DE_PLUS DE_MINUS DE_ASTRK DE_FSLH DE_EQUAL>;
+};
+
 / {
     chosen {
         zmk,physical-layout = &default_layout;
     };
 };
 
+/ {
+  behaviors {
+    nav_word: nav_word {
+      compatible = "zmk,behavior-auto-layer";
+      #binding-cells = <1>;
+      continue-list = <MOVE_LEFT MOVE_DOWN MOVE_UP MOVE_RIGHT SCRL_LEFT SCRL_DOWN SCRL_UP SCRL_RIGHT LCLK RCLK>;
+      ignore-modifiers;
+    };
+  };
+};
 
 / {
     beaviors {
@@ -62,7 +77,21 @@
             #binding-cells = <2>;
             flavor = "hold-preferred";
             tapping-term-ms = <200>;
-            bindings = <&mo>, <&caps_word>;
+            bindings = <&nav_word>, <&caps_word>;
+        };
+        nwsk: NavkwordSticky {
+            compatible = "zmk,behavior-hold-tap";
+            #binding-cells = <2>;
+            flavor = "hold-preferred";
+            tapping-term-ms = <200>;
+            bindings = <&nav_word>, <&sk>;
+        };
+        nwl: NumWorkdLayer {
+            compatible = "zmk,behavior-hold-tap";
+            #binding-cells = <2>;
+            flavor = "hold-preferred";
+            tapping-term-ms = <200>;
+            bindings = <&num_word>, <&kp>;
         };
     };
 };
@@ -105,6 +134,12 @@
       #binding-cells = <0>;
       tapping-term-ms = <200>;
       bindings = <&lt 1 DE_ASTRK>, <&lt 2 DE_ASTRK>;
+    };
+    td_num_hash: TapDanceNumHash {
+      compatible = "zmk,behavior-tap-dance";
+      #binding-cells = <0>;
+      tapping-term-ms = <200>;
+      bindings = <&kp DE_HASH>,  <&num_word 1>;
     };
     td_layer_ralt: TapDanceLayerHash {
       compatible = "zmk,behavior-tap-dance";
@@ -260,10 +295,10 @@
         default_layer {
             display-name = "QWERTZ";
             bindings = <
-                &kp TAB       &kp DE_Q       &kp DE_W        &kp DE_E        &kp DE_R       &kp DE_T     &kp C_MUTE   &kp EMOJI    &kp DE_Z &kp DE_U       &kp DE_I        &kp DE_O        &kp DE_P     &bspcgrave
-                &mt HYPER ESC &hml LALT DE_A &hml LCTRL DE_S &hml LSHFT DE_D &hml LGUI DE_F &kp DE_G     &kp C_BRI_DN &kp C_BRI_UP &kp DE_H &hmr RGUI DE_J &hmr RSHFT DE_K &hmr RCTRL DE_L &pltild      &bsl
-                &td_quotes    &kp DE_Y       &kp DE_X        &kp DE_C        &kp DE_V       &kp DE_B                               &kp DE_N &kp DE_M       &kp DE_COMMA    &kp DE_DOT      &kp DE_MINUS &sq
-                                                             &td_layer_ralt  &lt 1 DE_HASH  &kp SPACE                              &kp RET  &lt 1 DE_ASTRK &cwl 2 DEL 
+                &kp TAB       &kp DE_Q       &kp DE_W        &kp DE_E        &kp DE_R       &kp DE_T     &kp C_MUTE   &kp EMOJI    &kp DE_Z &kp DE_U        &kp DE_I        &kp DE_O        &kp DE_P     &bspcgrave
+                &mt HYPER ESC &hml LALT DE_A &hml LCTRL DE_S &hml LSHFT DE_D &hml LGUI DE_F &kp DE_G     &kp C_BRI_DN &kp C_BRI_UP &kp DE_H &hmr RGUI DE_J  &hmr RSHFT DE_K &hmr RCTRL DE_L &pltild      &bsl
+                &td_quotes    &kp DE_Y       &kp DE_X        &kp DE_C        &kp DE_V       &kp DE_B                               &kp DE_N &kp DE_M        &kp DE_COMMA    &kp DE_DOT      &kp DE_MINUS &sq
+                                                             &nwsk 2 RALT    &nwl 1 DE_HASH &kp SPACE                              &kp RET  &nwl 1 DE_ASTRK &cwl 2 0 
             >;
         };
 
@@ -280,7 +315,7 @@
         raise_layer {
             display-name = "MOUSE";
             bindings = <
-                &trans &trans &trans &trans &trans    &trans  &studio_unlock &trans   &trans         &msc SCRL_UP   &msc SCRL_DOWN &trans          &trans &trans
+                &trans &trans &trans &trans &trans    &trans  &studio_unlock &trans   &msc SCRL_LEFT &msc SCRL_UP   &msc SCRL_DOWN &msc SCRL_RIGHT &trans &trans
                 &trans &trans &trans &trans &mkp LCLK &trans  &bt BT_SEL 0   &trans   &mmv MOVE_LEFT &mmv MOVE_DOWN &mmv MOVE_UP   &mmv MOVE_RIGHT &trans &trans
                 &trans &trans &trans &trans &mkp RCLK &trans                          &trans         &trans         &trans         &trans          &trans &trans 
                                      &trans &trans    &trans                          &trans         &trans         &trans
