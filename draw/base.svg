@@ -345,12 +345,10 @@ path.combo { stroke: #7f7f7f; }
 </a></g>
 <g transform="translate(616, 203)" class="key keypos-45">
 <rect rx="6" ry="6" x="-26" y="-26" width="52" height="52" class="key"/>
-<text x="0" y="0" class="key tap">
-<tspan x="0" dy="-1.2em">Caps</tspan><tspan x="0" dy="1.2em">Word</tspan>
-</text>
-<a href="#MOUSE">
-<text x="0" y="24" class="key hold layer-activator">MOUSE</text>
-</a></g>
+<text x="0" y="0" class="key tap">NumWord</text>
+<text x="0" y="24" class="key hold"><tspan style="font-size: 88%">CapsWord</tspan></text>
+<text x="0" y="-24" class="key shifted">NavWord</text>
+</g>
 </g>
 </g>
 <g transform="translate(30, 321)" class="layer-NUMBER">
@@ -696,8 +694,8 @@ path.combo { stroke: #7f7f7f; }
 <g transform="translate(555, 209) rotate(-12.0)" class="key trans keypos-44">
 <rect rx="6" ry="6" x="-26" y="-26" width="52" height="52" class="key trans"/>
 </g>
-<g transform="translate(616, 203)" class="key held keypos-45">
-<rect rx="6" ry="6" x="-26" y="-26" width="52" height="52" class="key held"/>
+<g transform="translate(616, 203)" class="key trans keypos-45">
+<rect rx="6" ry="6" x="-26" y="-26" width="52" height="52" class="key trans"/>
 </g>
 </g>
 </g>

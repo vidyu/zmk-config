@@ -63,7 +63,7 @@ draw:
     yq -Yi '.layers.NUMBER.[41] = {type: "held"}' "{{ draw }}/base.yaml"
     yq -Yi '.layers.NUMBER.[44] = {type: "held"}' "{{ draw }}/base.yaml"
     yq -Yi '.layers.MOUSE.[40] = {type: "held"}' "{{ draw }}/base.yaml"
-    yq -Yi '.layers.MOUSE.[45] = {type: "held"}' "{{ draw }}/base.yaml"
+    # yq -Yi '.layers.MOUSE.[45] = {type: "held"}' "{{ draw }}/base.yaml"
     keymap -c "{{ draw }}/config.yaml" draw "{{ draw }}/base.yaml" -d "{{ boards }}/arm/corne_choc_pro/corne_choc_pro-layouts.dtsi" >"{{ draw }}/base.svg"
 
 # preview generated keymap

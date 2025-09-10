@@ -79,7 +79,7 @@
             tapping-term-ms = <200>;
             bindings = <&nav_word>, <&caps_word>;
         };
-        nwsk: NavkwordSticky {
+        nwsk: NavwordSticky {
             compatible = "zmk,behavior-hold-tap";
             #binding-cells = <2>;
             flavor = "hold-preferred";
@@ -153,6 +153,12 @@
       tapping-term-ms = <200>;
       bindings = <&quotes>, <&kp DE_DOUBLE_QUOTES>, <&kp DE_GRAVE>;
     };
+    td_cw_nw_nw: TapDanceCapsWordNumWordNavWord {
+      compatible = "zmk,behavior-tap-dance";
+      #binding-cells = <0>;
+      tapping-term-ms = <200>;
+      bindings = <&caps_word>, <&num_word 1>, <&nav_word 2>;
+    };
   };
 };
 
@@ -164,126 +170,126 @@
             key-positions = <RM1 RM2>;
             bindings = <&kp DE_LBKT>;
             require-prior-idle-ms = <150>;
-            layers = <0>;
+            layers = <0 1 2>;
         };
         combo_r_bkt {
             timeout-ms = <50>;
             key-positions = <RM2 RM3>;
             bindings = <&kp DE_RBKT>;
             require-prior-idle-ms = <150>;
-            layers = <0>;
+            layers = <0 1 2>;
         };
         combo_l_par {
             timeout-ms = <50>;
             key-positions = <RT1 RT2>;
             bindings = <&kp DE_LPAR>;
             require-prior-idle-ms = <150>;
-            layers = <0>;
+            layers = <0 1 2>;
         };
         combo_r_par {
             timeout-ms = <50>;
             key-positions = <RT2 RT3>;
             bindings = <&kp DE_RPAR>;
             require-prior-idle-ms = <150>;
-            layers = <0>;
+            layers = <0 1 2>;
         };
         combo_l_brc {
             timeout-ms = <50>;
             key-positions = <RB1 RB2>;
             bindings = <&kp DE_LBRC>;
             require-prior-idle-ms = <150>;
-            layers = <0>;
+            layers = <0 1 2>;
         };
         combo_r_brc {
             timeout-ms = <50>;
             key-positions = <RB2 RB3>;
             bindings = <&kp DE_RBRC>;
             require-prior-idle-ms = <150>;
-            layers = <0>;
+            layers = <0 1 2>;
         };
         combo_lt {
             timeout-ms = <50>;
             key-positions = <RM0 RM1>;
             bindings = <&kp DE_LT>;
             require-prior-idle-ms = <150>;
-            layers = <0>;
+            layers = <0 1 2>;
         };
         combo_gt {
             timeout-ms = <50>;
             key-positions = <RM3 RM4>;
             bindings = <&kp DE_GT>;
             require-prior-idle-ms = <150>;
-            layers = <0>;
+            layers = <0 1 2>;
         };
         combo_caret {
             timeout-ms = <50>;
             key-positions = <RB3 RB4>;
             bindings = <&kp DE_CARET>;
             require-prior-idle-ms = <150>;
-            layers = <0>;
+            layers = <0 1 2>;
         };
         combo_eql {
             timeout-ms = <50>;
             key-positions = <RT1 RT3>;
             bindings = <&kp DE_EQUAL>;
             require-prior-idle-ms = <150>;
-            layers = <0>;
+            layers = <0 1 2>;
         };
         /* combo_astrk { */
         /*     timeout-ms = <50>; */
         /*     key-positions = <RB1 RB3>; */
         /*     bindings = <&kp DE_ASTRK>; */
         /*     require-prior-idle-ms = <150>; */
-        /*     layers = <0>; */
+        /*     layers = <0 1 2>; */
         /* }; */
         combo_amps {
             timeout-ms = <50>;
             key-positions = <RT0 RT1>;
             bindings = <&kp DE_AMPS>;
             require-prior-idle-ms = <150>;
-            layers = <0>;
+            layers = <0 1 2>;
         };
         combo_dllr {
             timeout-ms = <50>;
             key-positions = <RB0 RB1>;
             bindings = <&kp DE_DLLR>;
             require-prior-idle-ms = <150>;
-            layers = <0>;
+            layers = <0 1 2>;
         };
         combo_quote {
             timeout-ms = <50>;
             key-positions = <RM2 RB2>;
             bindings = <&quotes>;
             require-prior-idle-ms = <150>;
-            layers = <0>;
+            layers = <0 1 2>;
         };
         combo_colon {
             timeout-ms = <50>;
             key-positions = <RM1 RM3>;
             bindings = <&kp DE_COLON>;
             require-prior-idle-ms = <150>;
-            layers = <0>;
+            layers = <0 1 2>;
         };
         combo_prcnt {
             timeout-ms = <50>;
             key-positions = <RB1 RB3>;
             bindings = <&kp DE_PRCNT>;
             require-prior-idle-ms = <150>;
-            layers = <0>;
+            layers = <0 1 2>;
         };
         combo_excl {
             timeout-ms = <50>;
             key-positions = <RT2 RM2>;
             bindings = <&kp DE_EXCL>;
             require-prior-idle-ms = <150>;
-            layers = <0>;
+            layers = <0 1 2>;
         };
         combo_at {
             timeout-ms = <50>;
             key-positions = <RT3 RT4>;
             bindings = <&kp DE_AT>;
             require-prior-idle-ms = <150>;
-            layers = <0>;
+            layers = <0 1 2>;
         };
     };
 };
@@ -295,10 +301,10 @@
         default_layer {
             display-name = "QWERTZ";
             bindings = <
-                &kp TAB       &kp DE_Q       &kp DE_W        &kp DE_E        &kp DE_R       &kp DE_T     &kp C_MUTE   &kp EMOJI    &kp DE_Z &kp DE_U        &kp DE_I        &kp DE_O        &kp DE_P     &bspcgrave
-                &mt HYPER ESC &hml LALT DE_A &hml LCTRL DE_S &hml LSHFT DE_D &hml LGUI DE_F &kp DE_G     &kp C_BRI_DN &kp C_BRI_UP &kp DE_H &hmr RGUI DE_J  &hmr RSHFT DE_K &hmr RCTRL DE_L &pltild      &bsl
-                &td_quotes    &kp DE_Y       &kp DE_X        &kp DE_C        &kp DE_V       &kp DE_B                               &kp DE_N &kp DE_M        &kp DE_COMMA    &kp DE_DOT      &kp DE_MINUS &sq
-                                                             &nwsk 2 RALT    &nwl 1 DE_HASH &kp SPACE                              &kp RET  &nwl 1 DE_ASTRK &cwl 2 0 
+                &kp TAB       &kp DE_Q       &kp DE_W        &kp DE_E        &kp DE_R       &kp DE_T     &kp C_MUTE   &kp EMOJI    &kp DE_Z &kp DE_U       &kp DE_I        &kp DE_O        &kp DE_P     &bspcgrave
+                &mt HYPER ESC &hml LALT DE_A &hml LCTRL DE_S &hml LSHFT DE_D &hml LGUI DE_F &kp DE_G     &kp C_BRI_DN &kp C_BRI_UP &kp DE_H &hmr RGUI DE_J &hmr RSHFT DE_K &hmr RCTRL DE_L &pltild      &bsl
+                &td_quotes    &kp DE_Y       &kp DE_X        &kp DE_C        &kp DE_V       &kp DE_B                               &kp DE_N &kp DE_M       &kp DE_COMMA    &kp DE_DOT      &kp DE_MINUS &sq
+                                                             &nwsk 2 RALT    &lt 1 DE_HASH  &kp SPACE                              &kp RET  &lt 1 DE_ASTRK &td_cw_nw_nw 
             >;
         };
 

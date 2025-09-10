@@ -31,6 +31,7 @@ parse_config:
     # Tap Dances
     "&td_quotes": { "t": "'", "h": '"', "s": "`" }
     "&td_layer_ralt": { "t": R_Alt, "h": MOUSE }
+    "&td_cw_nw_nw": { "t": "NumWord", "h": "CapsWord", "s": "NavWord" }
 
     "&mt HYPER ESC": { "t": "Esc", "h": "Hyper" }
     "&studio_unlock": "Studio"
