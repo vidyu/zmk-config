@@ -149,6 +149,11 @@ parse_config:
     C_NEXT: $$mdi:skip-forward$$
     C_PREV: $$mdi:skip-backward$$
 
+    # umlaut
+    A_UMLAUT: ä
+    U_UMLAUT: ü
+    O_UMLAUT: ö
+
     # defaults
     AMPERSAND: "&"
     AMPS: "&"
