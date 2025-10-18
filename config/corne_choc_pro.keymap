@@ -135,6 +135,12 @@
       bindings = <&hml LALT DE_A>, <&kp DE_A_UMLAUT>;
       mods = <(MOD_RALT)>;
     };
+    hm_s: HomeRowEszett {
+      compatible = "zmk,behavior-mod-morph";
+      #binding-cells = <0>;
+      bindings = <&hml LCTRL DE_S>, <&kp DE_ESZETT>;
+      mods = <(MOD_RALT)>;
+    };
     u_umlaut: UUmlaut {
       compatible = "zmk,behavior-mod-morph";
       #binding-cells = <0>;
@@ -331,10 +337,10 @@
         default_layer {
             display-name = "QWERTZ";
             bindings = <
-                &kp TAB       &kp DE_Q  &kp DE_W        &kp DE_E        &kp DE_R       &kp DE_T     &kp C_MUTE   &kp EMOJI    &kp DE_Z &u_umlaut      &kp DE_I        &o_umlaut       &kp DE_P     &bspcgrave
-                &mt HYPER ESC &hm_a     &hml LCTRL DE_S &hml LSHFT DE_D &hml LGUI DE_F &kp DE_G     &kp C_BRI_DN &kp C_BRI_UP &kp DE_H &hmr RGUI DE_J &hmr RSHFT DE_K &hmr RCTRL DE_L &pltild      &bsl
-                &td_quotes    &kp DE_Y  &kp DE_X        &kp DE_C        &kp DE_V       &kp DE_B                               &kp DE_N &kp DE_M       &kp DE_COMMA    &kp DE_DOT      &kp DE_MINUS &sq
-                                                        &nwsk 2 RALT    &lt 1 DE_HASH  &kp SPACE                              &kp RET  &lt 1 DE_ASTRK &td_cw_nw_nw 
+                &kp TAB       &kp DE_Q  &kp DE_W &kp DE_E        &kp DE_R       &kp DE_T     &kp C_MUTE   &kp EMOJI    &kp DE_Z &u_umlaut      &kp DE_I        &o_umlaut       &kp DE_P     &bspcgrave
+                &mt HYPER ESC &hm_a     &hm_s    &hml LSHFT DE_D &hml LGUI DE_F &kp DE_G     &kp C_BRI_DN &kp C_BRI_UP &kp DE_H &hmr RGUI DE_J &hmr RSHFT DE_K &hmr RCTRL DE_L &pltild      &bsl
+                &td_quotes    &kp DE_Y  &kp DE_X &kp DE_C        &kp DE_V       &kp DE_B                               &kp DE_N &kp DE_M       &kp DE_COMMA    &kp DE_DOT      &kp DE_MINUS &sq
+                                                 &nwsk 2 RALT    &lt 1 DE_HASH  &kp SPACE                              &kp RET  &lt 1 DE_ASTRK &td_cw_nw_nw 
             >;
         };
 

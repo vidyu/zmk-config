@@ -154,6 +154,8 @@ parse_config:
     U_UMLAUT: ü
     O_UMLAUT: ö
 
+    ESZETT: ß
+
     # defaults
     AMPERSAND: "&"
     AMPS: "&"
