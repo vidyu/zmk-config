@@ -123,6 +123,7 @@ parse_config:
     RGUI: Gui
     LSHFT: Shift
     RSHFT: Shift
+    GLOBE: 🌐
 
     BSPC: Bspc
     DEL: Del
