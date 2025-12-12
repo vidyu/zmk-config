@@ -28,7 +28,7 @@
 };
 
 &num_word {
-  continue-list = <LEFT RIGHT UP DOWN BSPC DEL DE_DOT DE_COMMA DE_PLUS DE_MINUS DE_ASTRK DE_FSLH DE_EQUAL>;
+  continue-list = <LEFT RIGHT UP DOWN BSPC DEL DE_DOT DE_COMMA DE_PLUS DE_MINUS DE_ASTRK DE_FSLH DE_EQUAL LSHFT RSHFT DE_GT DE_LT>;
 };
 
 / {
@@ -318,10 +318,10 @@
         lower_layer {
             display-name = "NUMBER";
             bindings = <
-                &trans &trans    &kp DE_N7 &kp DE_N8 &kp DE_N9 &trans &kp PASSWORD &rgb_ug RGB_TOG &trans   &trans   &trans &trans    &trans &trans
-                &trans &kp DE_N0 &kp DE_N4 &kp DE_N5 &kp DE_N6 &trans &trans       &trans          &kp LEFT &kp DOWN &kp UP &kp RIGHT &trans &trans
-                &trans &trans    &kp DE_N1 &kp DE_N2 &kp DE_N3 &trans                              &trans   &trans   &trans &trans    &trans &trans
-                                           &trans    &trans    &trans                              &trans   &trans   &trans
+                &trans &trans    &kp DE_N7        &kp DE_N8        &kp DE_N9        &trans &kp PASSWORD &rgb_ug RGB_TOG &trans   &trans         &trans         &trans           &trans &trans
+                &trans &kp DE_N0 &hml LCTRL DE_N4 &hml LSHFT DE_N5 &hml LGUI DE_N6  &trans &trans       &trans          &kp LEFT &hmr RGUI DOWN &hmr RSHFT UP  &hmr RCTRL RIGHT &trans &trans
+                &trans &trans    &kp DE_N1        &kp DE_N2        &kp DE_N3        &trans                              &trans   &trans         &trans         &trans           &trans &trans
+                                                  &trans           &trans           &trans                              &trans   &trans         &trans
             >;
         };
 
