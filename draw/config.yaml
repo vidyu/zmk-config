@@ -95,6 +95,7 @@ parse_config:
     "&kp LG(W)": "Close Tab"
     "&kp LG(T)": "New Tab"
     "&kp LG(LS(T))": "Reopen Tab"
+    "&kp LS(TAB)": "⇤"
 
     # Screenshots (macOS)
     "&kp LG(LS(N3))": "Screenshot"
@@ -130,7 +131,7 @@ parse_config:
     ESC: Esc
     RET: Enter
     SPACE: Spc
-    TAB: Tab
+    TAB: ⇥
 
     PG_UP: PgUp
     PG_DN: PgDn
