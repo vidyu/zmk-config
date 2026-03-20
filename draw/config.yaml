@@ -75,11 +75,11 @@ parse_config:
     "&right": { t: →, s: Mouse → }
 
     # Media controls (very useful for keyboards)
-    "&kp C_PP": "Play/Pause"
-    "&kp C_NEXT": "Next Track"
-    "&kp C_PREV": "Prev Track"
-    "&kp C_VOL_UP": "Vol +"
-    "&kp C_VOL_DN": "Vol -"
+    "&kp C_PP": "⏯"
+    "&kp C_NEXT": "⏭"
+    "&kp C_PREV": "⏮"
+    "&kp C_VOL_UP": "🔊"
+    "&kp C_VOL_DN": "🔉"
     "&kp C_MUTE": "Mute"
 
     # Navigation (useful for coding/text editing)
