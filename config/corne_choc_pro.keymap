@@ -121,8 +121,22 @@
     quotes: SingleAndDouble {
       compatible = "zmk,behavior-mod-morph";
       #binding-cells = <0>;
-      bindings = <&kp DE_APOS>, <&kp DE_DOUBLE_QUOTES>;
+      bindings = <&quotes_alt>, <&kp DE_DOUBLE_QUOTES>;
       mods = <(MOD_LSFT|MOD_RSFT)>;
+    };
+    quotes_alt: SingleAndGraveLeft {
+      compatible = "zmk,behavior-mod-morph";
+      #binding-cells = <0>;
+      bindings = <&quotes_ralt>, <&grave_lalt>;
+      mods = <(MOD_LALT)>;
+      keep-mods = <(MOD_LALT)>;
+    };
+    quotes_ralt: SingleAndGraveRight {
+      compatible = "zmk,behavior-mod-morph";
+      #binding-cells = <0>;
+      bindings = <&kp DE_APOS>, <&grave_ralt>;
+      mods = <(MOD_RALT)>;
+      keep-mods = <(MOD_RALT)>;
     };
     pltild: PlusAndTilde {
       compatible = "zmk,behavior-mod-morph";
@@ -207,6 +221,31 @@
       #binding-cells = <0>;
       tapping-term-ms = <200>;
       bindings = <&caps_word>, <&num_word 1>, <&nav_word 2>;
+    };
+  };
+};
+
+/ {
+  macros {
+    grave_lalt: grave_macro_lalt {
+      compatible = "zmk,behavior-macro";
+      #binding-cells = <0>;
+      wait-ms = <10>;
+      tap-ms = <10>;
+      bindings
+        = <&macro_release &kp LALT>
+        , <&macro_tap &kp DE_GRAVE &kp SPACE>
+        , <&macro_press &kp LALT>;
+    };
+    grave_ralt: grave_macro_ralt {
+      compatible = "zmk,behavior-macro";
+      #binding-cells = <0>;
+      wait-ms = <10>;
+      tap-ms = <10>;
+      bindings
+        = <&macro_release &kp RALT>
+        , <&macro_tap &kp DE_GRAVE &kp SPACE>
+        , <&macro_press &kp RALT>;
     };
   };
 };
