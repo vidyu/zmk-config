@@ -61,4 +61,4 @@
 
 #define RH0 43  // right thumb keys
 #define RH1 44
-#define RH2 46
+#define RH2 45

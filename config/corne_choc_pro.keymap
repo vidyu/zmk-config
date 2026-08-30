@@ -49,7 +49,7 @@
 };
 
 / {
-    beaviors {
+    behaviors {
         hml: HomeRowModLeft {
             compatible = "zmk,behavior-hold-tap";
             #binding-cells = <2>;
