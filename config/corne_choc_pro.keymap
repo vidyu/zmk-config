@@ -98,7 +98,7 @@
 
 
 / {
-  beaviors {
+  behaviors {
     sq: SlashQuestion {
       compatible = "zmk,behavior-mod-morph";
       #binding-cells = <0>;
