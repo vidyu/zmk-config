@@ -3,4 +3,17 @@ on: [push, pull_request, workflow_dispatch]
 
 jobs:
   build:
-    uses: zmkfirmware/zmk/.github/workflows/build-user-config.yml@main
+    # Pinned to the same ref as config/west.yml. Both pull from zmkfirmware/zmk:
+    # west.yml fetches the firmware source, this line the build recipe. They have
+    # to match.
+    #
+    # On @main the recipe carried a step calling `west boards --format
+    # "{qualifiers}"`, which only exists in the newer Zephyr that main ships.
+    # Against v0.3 it died with KeyError: 'qualifiers' — and since GitHub runs
+    # `run:` under `bash -e`, the script aborted before reaching its own error
+    # check, turning an intended warning into a hard failure. Archive was skipped,
+    # so no .uf2 ever came out, even though West Build itself was green.
+    #
+    # The v0.3 recipe has no such step. Bump BOTH lines together when moving to a
+    # newer ZMK release.
+    uses: zmkfirmware/zmk/.github/workflows/build-user-config.yml@v0.3
