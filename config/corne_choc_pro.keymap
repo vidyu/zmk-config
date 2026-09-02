@@ -150,10 +150,19 @@
       bindings = <&kp BSPC>, <&kp DE_GRAVE>;
       mods = <(MOD_LSFT|MOD_RSFT)>;
     };
+    // RALT, not LALT: HYPER is LC(LS(LA(LGUI))) and therefore carries LEFT alt.
+    // Any morph listening to MOD_LALT fires under Hyper as well, which is why
+    // Hyper+U used to send `ü` instead of reaching the hotkey. Keeping LALT for
+    // Hyper and RALT for the umlauts separates the two roles cleanly. macOS does
+    // not care - it has no AltGr, both Options are the same modifier there.
+    //
+    // Holding A still yields the modifier for U and O only: hml triggers on
+    // KEYS_R THUMBS. The mirror image gives ä and ß, where the modifier comes
+    // from + (hmr RALT, triggers on KEYS_L). Each umlaut uses the other hand.
     hm_a: HomeRowAUmlaut {
       compatible = "zmk,behavior-mod-morph";
       #binding-cells = <0>;
-      bindings = <&hml LALT DE_A>, <&kp DE_A_UMLAUT>;
+      bindings = <&hml RALT DE_A>, <&kp DE_A_UMLAUT>;
       mods = <(MOD_RALT)>;
     };
     hm_s: HomeRowEszett {
@@ -166,13 +175,13 @@
       compatible = "zmk,behavior-mod-morph";
       #binding-cells = <0>;
       bindings = <&kp DE_U>, <&kp DE_U_UMLAUT>;
-      mods = <(MOD_RALT|MOD_LALT)>;
+      mods = <(MOD_RALT)>;
     };
     o_umlaut: OUmlaut {
       compatible = "zmk,behavior-mod-morph";
       #binding-cells = <0>;
       bindings = <&kp DE_O>, <&kp DE_O_UMLAUT>;
-      mods = <(MOD_RALT|MOD_LALT)>;
+      mods = <(MOD_RALT)>;
     };
     lbkt_par: LeftBracketdParen {
       compatible = "zmk,behavior-mod-morph";
