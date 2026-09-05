@@ -141,7 +141,7 @@
     pltild: PlusAndTilde {
       compatible = "zmk,behavior-mod-morph";
       #binding-cells = <0>;
-      bindings = <&hmr RALT DE_PLUS>, <&kp DE_TILDE>;
+      bindings = <&hmr LALT DE_PLUS>, <&kp DE_TILDE>;
       mods = <(MOD_LSFT|MOD_RSFT)>;
     };
     bspcgrave: BackspaceAndGrave {
@@ -150,38 +150,44 @@
       bindings = <&kp BSPC>, <&kp DE_GRAVE>;
       mods = <(MOD_LSFT|MOD_RSFT)>;
     };
-    // RALT, not LALT: HYPER is LC(LS(LA(LGUI))) and therefore carries LEFT alt.
-    // Any morph listening to MOD_LALT fires under Hyper as well, which is why
-    // Hyper+U used to send `ü` instead of reaching the hotkey. Keeping LALT for
-    // Hyper and RALT for the umlauts separates the two roles cleanly. macOS does
-    // not care - it has no AltGr, both Options are the same modifier there.
+    // LALT, not RALT: two roles ride on this modifier and both need LEFT alt.
     //
-    // Holding A still yields the modifier for U and O only: hml triggers on
-    // KEYS_R THUMBS. The mirror image gives ä and ß, where the modifier comes
-    // from + (hmr RALT, triggers on KEYS_L). Each umlaut uses the other hand.
+    // 1. Umlauts. The morphs below fire in firmware and mask the modifier away,
+    //    so macOS never sees an Option - `ü` is plain LEFT_BRACKET on a German
+    //    layout. The modifier is a pure ZMK trigger here.
+    // 2. Shortcuts. Ghostty runs `macos-option-as-alt = left`, so only LEFT
+    //    option reaches the terminal as Alt. RALT stays a character modifier
+    //    there and turns Option+P into `π` instead of firing the binding.
+    //
+    // Because no morph listens on P, the same held LALT that makes umlauts also
+    // delivers Option+P untouched. Hyper therefore had to give up LALT and now
+    // builds on RALT (see macros.h) - otherwise every Hyper chord would morph.
+    //
+    // Reach: the Space thumb (hmt LALT) has no position list and serves all
+    // four umlauts. A (hml) and + (hmr) keep their cross-hand halves.
     hm_a: HomeRowAUmlaut {
       compatible = "zmk,behavior-mod-morph";
       #binding-cells = <0>;
-      bindings = <&hml RALT DE_A>, <&kp DE_A_UMLAUT>;
-      mods = <(MOD_RALT)>;
+      bindings = <&hml LALT DE_A>, <&kp DE_A_UMLAUT>;
+      mods = <(MOD_LALT)>;
     };
     hm_s: HomeRowEszett {
       compatible = "zmk,behavior-mod-morph";
       #binding-cells = <0>;
       bindings = <&hml LCTRL DE_S>, <&kp DE_ESZETT>;
-      mods = <(MOD_RALT)>;
+      mods = <(MOD_LALT)>;
     };
     u_umlaut: UUmlaut {
       compatible = "zmk,behavior-mod-morph";
       #binding-cells = <0>;
       bindings = <&kp DE_U>, <&kp DE_U_UMLAUT>;
-      mods = <(MOD_RALT)>;
+      mods = <(MOD_LALT)>;
     };
     o_umlaut: OUmlaut {
       compatible = "zmk,behavior-mod-morph";
       #binding-cells = <0>;
       bindings = <&kp DE_O>, <&kp DE_O_UMLAUT>;
-      mods = <(MOD_RALT)>;
+      mods = <(MOD_LALT)>;
     };
     lbkt_par: LeftBracketdParen {
       compatible = "zmk,behavior-mod-morph";
@@ -362,14 +368,15 @@
 
         default_layer {
             display-name = "QWERTZ";
+            // Left outer thumb: hold = MOUSE layer, tap = sticky Hyper. Hyper is
+            // RALT-based now, so it no longer triggers the umlaut morphs. The
+            // umlaut and shortcut Alt is LALT and comes cross-hand from A (hml,
+            // reaches u/o) and + (hmr, reaches a/s).
             bindings = <
                 &kp TAB       &kp DE_Q  &kp DE_W &kp DE_E        &kp DE_R       &kp DE_T     &kp C_PP     &kp EMOJI    &kp DE_Z &u_umlaut      &kp DE_I        &o_umlaut       &kp DE_P     &bspcgrave
                 &mt HYPER ESC &hm_a     &hm_s    &hml LSHFT DE_D &hml LGUI DE_F &kp DE_G     &kp C_VOL_DN &kp C_VOL_UP &kp DE_H &hmr RGUI DE_J &hmr RSHFT DE_K &hmr RCTRL DE_L &pltild      &ht_bsl HYPER 0
                 &kp LS(TAB)   &kp DE_Y  &kp DE_X &kp DE_C        &kp DE_V       &kp DE_B                               &kp DE_N &kp DE_M       &kp DE_COMMA    &kp DE_DOT      &kp DE_MINUS &sq
-                // Left outer thumb: hold = MOUSE layer, tap = sticky Hyper. Uses the
-                // HYPER macro, so it carries LALT like the other two Hyper keys -
-                // an RALT variant would fire all four umlaut morphs instead.
-                                                 &nwsk 2 HYPER   &lt 1 DE_HASH  &kp SPACE                              &kp RET  &lt 1 DE_ASTRK &td_cw_nw_nw 
+                                                 &nwsk 2 HYPER   &lt 1 DE_HASH  &kp SPACE                              &kp RET         &lt 1 DE_ASTRK &td_cw_nw_nw
             >;
         };
 
