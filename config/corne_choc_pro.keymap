@@ -385,13 +385,15 @@
             //                 RALT-based now, so it triggers no umlaut morph.
             //   Space       - RALT, the composing Alt: macOS Option sequences
             //                 the layout does not cover itself (π and friends).
-            // The umlauts do NOT come from a thumb: they are firmware morphs on
-            // LALT, cross-hand from A (hml, reaches u/o) and + (hmr, reaches a/s).
+            //   Return      - RALT as well, same behaviour as Space, so either
+            //                 thumb composes. The umlauts do NOT come from a
+            //                 thumb: they are firmware morphs on LALT, reached
+            //                 cross-hand from A (hml, u/o) and + (hmr, a/s).
             bindings = <
                 &kp TAB       &kp DE_Q  &kp DE_W &kp DE_E        &kp DE_R       &kp DE_T     &kp C_PP     &kp EMOJI    &kp DE_Z &u_umlaut      &kp DE_I        &o_umlaut       &kp DE_P     &bspcgrave
                 &mt HYPER ESC &hm_a     &hm_s    &hml LSHFT DE_D &hml LGUI DE_F &kp DE_G     &kp C_VOL_DN &kp C_VOL_UP &kp DE_H &hmr RGUI DE_J &hmr RSHFT DE_K &hmr RCTRL DE_L &pltild      &ht_bsl HYPER 0
                 &kp LS(TAB)   &kp DE_Y  &kp DE_X &kp DE_C        &kp DE_V       &kp DE_B                               &kp DE_N &kp DE_M       &kp DE_COMMA    &kp DE_DOT      &kp DE_MINUS &sq
-                                                 &nwsk 2 HYPER   &lt 1 DE_HASH  &hmt RALT SPACE                        &kp RET         &lt 1 DE_ASTRK &td_cw_nw_nw
+                                                 &nwsk 2 HYPER   &lt 1 DE_HASH  &hmt RALT SPACE                        &hmt RALT RET  &lt 1 DE_ASTRK &td_cw_nw_nw
             >;
         };
 
