@@ -153,7 +153,7 @@
     pltild: PlusAndTilde {
       compatible = "zmk,behavior-mod-morph";
       #binding-cells = <0>;
-      bindings = <&hmr LALT DE_PLUS>, <&kp DE_TILDE>;
+      bindings = <&kp DE_PLUS>, <&kp DE_TILDE>;
       mods = <(MOD_LSFT|MOD_RSFT)>;
     };
     bspcgrave: BackspaceAndGrave {
@@ -175,12 +175,12 @@
     // delivers Option+P untouched. Hyper therefore had to give up LALT and now
     // builds on RALT (see macros.h) - otherwise every Hyper chord would morph.
     //
-    // Reach: the Space thumb (hmt LALT) has no position list and serves all
-    // four umlauts. A (hml) and + (hmr) keep their cross-hand halves.
+    // Reach: the middle fingers (hml LALT on D, hmr LALT on K) serve the
+    // umlauts; use the opposite hand's middle finger for instant cross-hand holds.
     hm_a: HomeRowAUmlaut {
       compatible = "zmk,behavior-mod-morph";
       #binding-cells = <0>;
-      bindings = <&hml LALT DE_A>, <&kp DE_A_UMLAUT>;
+      bindings = <&kp DE_A>, <&kp DE_A_UMLAUT>;
       mods = <(MOD_LALT)>;
     };
     hm_s: HomeRowEszett {
@@ -391,9 +391,9 @@
             //                 cross-hand from A (hml, u/o) and + (hmr, a/s).
             bindings = <
                 &kp TAB       &kp DE_Q  &kp DE_W &kp DE_E        &kp DE_R       &kp DE_T     &kp C_PP     &kp EMOJI    &kp DE_Z &u_umlaut      &kp DE_I        &o_umlaut       &kp DE_P     &bspcgrave
-                &mt HYPER ESC &hm_a     &hm_s    &hml LSHFT DE_D &hml LGUI DE_F &kp DE_G     &kp C_VOL_DN &kp C_VOL_UP &kp DE_H &hmr RGUI DE_J &hmr RSHFT DE_K &hmr RCTRL DE_L &pltild      &ht_bsl HYPER 0
+                &mt HYPER ESC &hm_a     &hm_s    &hml LALT DE_D  &hml LGUI DE_F &kp DE_G     &kp C_VOL_DN &kp C_VOL_UP &kp DE_H &hmr RGUI DE_J &hmr LALT DE_K  &hmr RCTRL DE_L &pltild      &ht_bsl HYPER 0
                 &kp LS(TAB)   &kp DE_Y  &kp DE_X &kp DE_C        &kp DE_V       &kp DE_B                               &kp DE_N &kp DE_M       &kp DE_COMMA    &kp DE_DOT      &kp DE_MINUS &sq
-                                                 &nwsk 2 HYPER   &lt 1 DE_HASH  &hmt RALT SPACE                        &hmt RALT RET  &lt 1 DE_ASTRK &td_cw_nw_nw
+                                                 &nwsk 2 HYPER   &lt 1 DE_HASH  &hmt LSHIFT SPACE                      &hmt RSHIFT RET         &lt 1 DE_ASTRK  &td_cw_nw_nw
             >;
         };
 
@@ -401,7 +401,7 @@
             display-name = "NUMBER";
             bindings = <
                 &trans &trans          &kp DE_N7        &kp DE_N8        &kp DE_N9        &trans &kp PASSWORD &rgb_ug RGB_TOG &trans   &trans         &trans         &trans           &trans   &trans
-                &trans &hml LALT DE_N0 &hml LCTRL DE_N4 &hml LSHFT DE_N5 &hml LGUI DE_N6  &trans &kp C_PREV   &kp C_NEXT      &kp LEFT &hmr RGUI DOWN &hmr RSHFT UP  &hmr RCTRL RIGHT &kp RALT &trans
+                &trans &kp DE_N0       &hml LCTRL DE_N4 &hml LALT DE_N5  &hml LGUI DE_N6  &trans &kp C_PREV   &kp C_NEXT      &kp LEFT &hmr RGUI DOWN &hmr LALT UP   &hmr RCTRL RIGHT &kp RALT &trans
                 &trans &trans          &kp DE_N1        &kp DE_N2        &kp DE_N3        &trans                              &trans   &trans         &trans         &trans           &trans   &trans
                                                         &trans           &trans           &trans                              &trans   &trans         &trans
             >;
