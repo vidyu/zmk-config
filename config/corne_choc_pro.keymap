@@ -84,6 +84,17 @@
             // composing Alt, and macOS Option sequences live on both halves of
             // the board. A position list would cut off one of them.
         };
+        // Enter only on a short, clean tap: any other key pressed while held
+        // turns it into the modifier, and there is no prior-idle shortcut, so
+        // a mid-sentence Shift never fires a stray Return.
+        hmt_ent: EnterModThumb {
+            compatible = "zmk,behavior-hold-tap";
+            #binding-cells = <2>;
+            flavor = "hold-preferred";
+            tapping-term-ms = <200>;
+            quick-tap-ms = <175>;
+            bindings = <&kp>, <&kp>;
+        };
         cwl: CapsWordLayer {
             compatible = "zmk,behavior-hold-tap";
             #binding-cells = <2>;
@@ -390,10 +401,10 @@
             //                 thumb: they are firmware morphs on LALT, reached
             //                 cross-hand from A (hml, u/o) and + (hmr, a/s).
             bindings = <
-                &kp TAB       &kp DE_Q  &kp DE_W &kp DE_E        &kp DE_R       &kp DE_T     &kp C_PP     &kp EMOJI    &kp DE_Z &u_umlaut      &kp DE_I        &o_umlaut       &kp DE_P     &bspcgrave
-                &mt HYPER ESC &hm_a     &hm_s    &hml LALT DE_D  &hml LGUI DE_F &kp DE_G     &kp C_VOL_DN &kp C_VOL_UP &kp DE_H &hmr RGUI DE_J &hmr LALT DE_K  &hmr RCTRL DE_L &pltild      &ht_bsl HYPER 0
-                &kp LS(TAB)   &kp DE_Y  &kp DE_X &kp DE_C        &kp DE_V       &kp DE_B                               &kp DE_N &kp DE_M       &kp DE_COMMA    &kp DE_DOT      &kp DE_MINUS &sq
-                                                 &nwsk 2 HYPER   &lt 1 DE_HASH  &hmt LSHIFT SPACE                      &hmt RSHIFT RET         &lt 1 DE_ASTRK  &td_cw_nw_nw
+                &kp TAB       &kp DE_Q  &kp DE_W &kp DE_E        &kp DE_R       &kp DE_T     &kp C_PP     &kp EMOJI    &kp DE_Z            &u_umlaut      &kp DE_I        &o_umlaut       &kp DE_P     &bspcgrave
+                &mt HYPER ESC &hm_a     &hm_s    &hml LALT DE_D  &hml LGUI DE_F &kp DE_G     &kp C_VOL_DN &kp C_VOL_UP &kp DE_H            &hmr RGUI DE_J &hmr LALT DE_K  &hmr RCTRL DE_L &pltild      &ht_bsl HYPER 0
+                &kp LS(TAB)   &kp DE_Y  &kp DE_X &kp DE_C        &kp DE_V       &kp DE_B                               &kp DE_N            &kp DE_M       &kp DE_COMMA    &kp DE_DOT      &kp DE_MINUS &sq
+                                                 &nwsk 2 HYPER   &lt 1 DE_HASH  &hmt LSHIFT SPACE                      &hmt_ent RSHIFT RET &lt 1 DE_ASTRK  &td_cw_nw_nw
             >;
         };
 
