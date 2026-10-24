@@ -11,7 +11,6 @@ parse_config:
   raw_binding_map:
     "&sys_reset": Reset
     "&bootloader": Boot
-    "&caps_word": Caps Word
 
     # German number keys with shift symbols
     "&kp DE_N1": { "t": "1", "s": "!" }
@@ -25,15 +24,6 @@ parse_config:
     "&kp DE_N9": { "t": "9", "s": ")" }
     "&kp DE_N0": { "t": "0", "s": "=" }
 
-    # Layers
-    "&nav_word 2": { "t": MOUSE }
-    "&num_word 1": { "t": NUMBER }
-    # Tap Dances
-    "&td_quotes": { "t": "'", "h": '"', "s": "`" }
-    "&td_layer_ralt": { "t": R_Alt, "h": MOUSE }
-    "&td_cw_nw_nw": { "t": "NumWord", "h": "CapsWord", "s": "NavWord" }
-
-    "&mt HYPER ESC": { "t": "Esc", "h": "Hyper" }
     "&studio_unlock": "Studio"
 
     # Bluetooth bindings
@@ -111,8 +101,9 @@ parse_config:
   zmk_combos:
     combo_colon: { align: bottom, o: 0.25 }
     combo_eql: { align: top, o: 0.15 }
-    combo_astrk: { align: bottom, o: 0.15 }
+    combo_astrk: { align: top, o: 1.75 }
     combo_prcnt: { align: bottom, o: 1.35 }
+    combo_tab: { align: top, o: 0.3 }
 
   zmk_keycode_map:
     # custom mappings

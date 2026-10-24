@@ -8,7 +8,6 @@
 #include <dt-bindings/zmk/keys.h>
 #include <dt-bindings/zmk/bt.h>
 #include <dt-bindings/zmk/rgb.h>
-#include <behaviors/num_word.dtsi>
 
 #ifndef KEYMAP_DRAWER
 #include "keys_de.h"
@@ -23,29 +22,10 @@
 
 #define THUMBS LH2 LH1 LH0 RH0 RH1 RH2
 
-&caps_word {
-    continue-list = <DE_MINUS LS(DE_MINUS) BSPC>;
-};
-
-&num_word {
-  continue-list = <LEFT RIGHT UP DOWN BSPC DEL DE_DOT DE_COMMA DE_PLUS DE_MINUS DE_ASTRK DE_FSLH DE_EQUAL LSHFT RSHFT DE_GT DE_LT>;
-};
-
 / {
     chosen {
         zmk,physical-layout = &default_layout;
     };
-};
-
-/ {
-  behaviors {
-    nav_word: nav_word {
-      compatible = "zmk,behavior-auto-layer";
-      #binding-cells = <1>;
-      continue-list = <MOVE_LEFT MOVE_DOWN MOVE_UP MOVE_RIGHT SCRL_LEFT SCRL_DOWN SCRL_UP SCRL_RIGHT LCLK RCLK>;
-      ignore-modifiers;
-    };
-  };
 };
 
 / {
@@ -95,26 +75,14 @@
             quick-tap-ms = <175>;
             bindings = <&kp>, <&kp>;
         };
-        cwl: CapsWordLayer {
+        // Layer on hold, /? morph on tap: &lt only takes a plain keycode.
+        ht_sq: LayerSlash {
             compatible = "zmk,behavior-hold-tap";
             #binding-cells = <2>;
             flavor = "hold-preferred";
             tapping-term-ms = <200>;
-            bindings = <&nav_word>, <&caps_word>;
-        };
-        nwsk: NavwordSticky {
-            compatible = "zmk,behavior-hold-tap";
-            #binding-cells = <2>;
-            flavor = "hold-preferred";
-            tapping-term-ms = <200>;
-            bindings = <&mo>, <&sk>;
-        };
-        nwl: NumWorkdLayer {
-            compatible = "zmk,behavior-hold-tap";
-            #binding-cells = <2>;
-            flavor = "hold-preferred";
-            tapping-term-ms = <200>;
-            bindings = <&num_word>, <&kp>;
+            quick-tap-ms = <175>;
+            bindings = <&mo>, <&sq>;
         };
     };
 };
@@ -134,12 +102,29 @@
       bindings = <&kp DE_BSLH>, <&kp DE_PIPE>;
       mods = <(MOD_LSFT|MOD_RSFT)>;
     };
-    ht_bsl: HyperBsl {
+    // Hyper on the home-row pinkies. Opposite-hand trigger positions, like
+    // hml/hmr, so same-hand rolls stay taps; the tap keeps the original morph.
+    hy_a: HyperA {
       compatible = "zmk,behavior-hold-tap";
       #binding-cells = <2>;
       flavor = "balanced";
-      tapping-term-ms = <200>;
-      bindings = <&kp>, <&bsl>;
+      require-prior-idle-ms = <150>;
+      tapping-term-ms = <280>;
+      quick-tap-ms = <175>;
+      bindings = <&kp>, <&hm_a>;
+      hold-trigger-key-positions = < KEYS_R THUMBS >;
+      hold-trigger-on-release;
+    };
+    hy_plus: HyperPlus {
+      compatible = "zmk,behavior-hold-tap";
+      #binding-cells = <2>;
+      flavor = "balanced";
+      require-prior-idle-ms = <150>;
+      tapping-term-ms = <280>;
+      quick-tap-ms = <175>;
+      bindings = <&kp>, <&pltild>;
+      hold-trigger-key-positions = < KEYS_L THUMBS >;
+      hold-trigger-on-release;
     };
     quotes: SingleAndDouble {
       compatible = "zmk,behavior-mod-morph";
@@ -167,10 +152,10 @@
       bindings = <&kp DE_PLUS>, <&kp DE_TILDE>;
       mods = <(MOD_LSFT|MOD_RSFT)>;
     };
-    bspcgrave: BackspaceAndGrave {
+    bspcdel: BackspaceAndDelete {
       compatible = "zmk,behavior-mod-morph";
       #binding-cells = <0>;
-      bindings = <&kp BSPC>, <&kp DE_GRAVE>;
+      bindings = <&kp BSPC>, <&kp DEL>;
       mods = <(MOD_LSFT|MOD_RSFT)>;
     };
     // LALT, not RALT: two roles ride on this modifier and both need LEFT alt.
@@ -242,23 +227,11 @@
       tapping-term-ms = <200>;
       bindings = <&lt 1 DE_ASTRK>, <&lt 2 DE_ASTRK>;
     };
-    td_num_hash: TapDanceNumHash {
-      compatible = "zmk,behavior-tap-dance";
-      #binding-cells = <0>;
-      tapping-term-ms = <200>;
-      bindings = <&kp DE_HASH>,  <&num_word 1>;
-    };
     td_layer_ralt: TapDanceLayerHash {
       compatible = "zmk,behavior-tap-dance";
       #binding-cells = <0>;
       tapping-term-ms = <200>;
       bindings = <&mo 2>, <&kp RALT>;
-    };
-    td_cw_nw_nw: TapDanceCapsWordNumWordNavWord {
-      compatible = "zmk,behavior-tap-dance";
-      #binding-cells = <0>;
-      tapping-term-ms = <200>;
-      bindings = <&caps_word>, <&num_word 1>, <&nav_word 2>;
     };
   };
 };
@@ -291,96 +264,116 @@
 / {
     combos {
         compatible = "zmk,combos";
+        combo_tab {
+            timeout-ms = <50>;
+            key-positions = <LT4 LT1>;
+            bindings = <&kp TAB>;
+            layers = <0 1>;
+        };
+        combo_astrk {
+            timeout-ms = <50>;
+            key-positions = <RM1 RM4>;
+            bindings = <&kp DE_ASTRK>;
+            require-prior-idle-ms = <150>;
+            layers = <0 1>;
+        };
+        combo_bsl {
+            timeout-ms = <50>;
+            key-positions = <RM3 RM4>;
+            bindings = <&bsl>;
+            require-prior-idle-ms = <150>;
+            layers = <0 1>;
+        };
         combo_l_bkt {
             timeout-ms = <50>;
             key-positions = <RM1 RM2>;
             bindings = <&lbkt_par>;
             require-prior-idle-ms = <150>;
-            layers = <0 1 2>;
+            layers = <0 1>;
         };
         combo_r_bkt {
             timeout-ms = <50>;
             key-positions = <RM2 RM3>;
             bindings = <&rbkt_par>;
             require-prior-idle-ms = <150>;
-            layers = <0 1 2>;
+            layers = <0 1>;
         };
         combo_l_brc {
             timeout-ms = <50>;
             key-positions = <RB1 RB2>;
             bindings = <&lbrc_lt>;
             require-prior-idle-ms = <150>;
-            layers = <0 1 2>;
+            layers = <0 1>;
         };
         combo_r_brc {
             timeout-ms = <50>;
             key-positions = <RB2 RB3>;
             bindings = <&rbrc_gt>;
             require-prior-idle-ms = <150>;
-            layers = <0 1 2>;
+            layers = <0 1>;
         };
         combo_caret {
             timeout-ms = <50>;
             key-positions = <RB0 RB1>;
             bindings = <&kp DE_CARET>;
             require-prior-idle-ms = <150>;
-            layers = <0 1 2>;
+            layers = <0 1>;
         };
         combo_eql {
             timeout-ms = <50>;
             key-positions = <RT1 RT3>;
             bindings = <&kp DE_EQUAL>;
             require-prior-idle-ms = <150>;
-            layers = <0 1 2>;
+            layers = <0 1>;
         };
         combo_amps {
             timeout-ms = <50>;
             key-positions = <RT0 RT1>;
             bindings = <&kp DE_AMPS>;
             require-prior-idle-ms = <150>;
-            layers = <0 1 2>;
+            layers = <0 1>;
         };
         combo_dllr {
             timeout-ms = <50>;
             key-positions = <RB3 RB4>;
             bindings = <&kp DE_DLLR>;
             require-prior-idle-ms = <150>;
-            layers = <0 1 2>;
+            layers = <0 1>;
         };
         combo_quote {
             timeout-ms = <50>;
             key-positions = <RM2 RB2>;
             bindings = <&quotes>;
             require-prior-idle-ms = <150>;
-            layers = <0 1 2>;
+            layers = <0 1>;
         };
         combo_colon {
             timeout-ms = <50>;
             key-positions = <RM1 RM3>;
             bindings = <&kp DE_COLON>;
             require-prior-idle-ms = <150>;
-            layers = <0 1 2>;
+            layers = <0 1>;
         };
         combo_prcnt {
             timeout-ms = <50>;
             key-positions = <RB1 RB3>;
             bindings = <&kp DE_PRCNT>;
             require-prior-idle-ms = <150>;
-            layers = <0 1 2>;
+            layers = <0 1>;
         };
         combo_excl {
             timeout-ms = <50>;
             key-positions = <RT2 RM2>;
             bindings = <&kp DE_EXCL>;
             require-prior-idle-ms = <150>;
-            layers = <0 1 2>;
+            layers = <0 1>;
         };
         combo_at {
             timeout-ms = <50>;
             key-positions = <RT3 RT4>;
             bindings = <&kp DE_AT>;
             require-prior-idle-ms = <150>;
-            layers = <0 1 2>;
+            layers = <0 1>;
         };
     };
 };
@@ -392,19 +385,21 @@
         default_layer {
             display-name = "QWERTZ";
             // Thumbs, from the outside in:
-            //   left outer  - hold = MOUSE layer, tap = sticky Hyper. Hyper is
-            //                 RALT-based now, so it triggers no umlaut morph.
-            //   Space       - RALT, the composing Alt: macOS Option sequences
-            //                 the layout does not cover itself (π and friends).
-            //   Return      - RALT as well, same behaviour as Space, so either
-            //                 thumb composes. The umlauts do NOT come from a
-            //                 thumb: they are firmware morphs on LALT, reached
-            //                 cross-hand from A (hml, u/o) and + (hmr, a/s).
+            //   left outer   - Esc, hold = MOUSE.
+            //   left middle  - #, hold = NUMBER.
+            //   Space/Return - hold = Shift; use the opposite thumb's Shift
+            //                  for Delete. Shift+Tab = Shift + Q+R combo.
+            //   right middle - / (Shift: ?), hold = NUMBER. * is J+Plus.
+            //   right outer  - Backspace (Shift: Delete). Tab is the Q+R
+            //                  combo; the outer columns are &none to train
+            //                  the 36/38-key layout.
+            // Hyper sits on held A and +. Umlauts are firmware morphs on LALT
+            // (D/K), so Hyper builds on RALT and triggers no morph.
             bindings = <
-                &kp TAB       &kp DE_Q  &kp DE_W &kp DE_E        &kp DE_R       &kp DE_T     &kp C_PP     &kp EMOJI    &kp DE_Z            &u_umlaut      &kp DE_I        &o_umlaut       &kp DE_P     &bspcgrave
-                &mt HYPER ESC &hm_a     &hm_s    &hml LALT DE_D  &hml LGUI DE_F &kp DE_G     &kp C_VOL_DN &kp C_VOL_UP &kp DE_H            &hmr RGUI DE_J &hmr LALT DE_K  &hmr RCTRL DE_L &pltild      &ht_bsl HYPER 0
-                &kp LS(TAB)   &kp DE_Y  &kp DE_X &kp DE_C        &kp DE_V       &kp DE_B                               &kp DE_N            &kp DE_M       &kp DE_COMMA    &kp DE_DOT      &kp DE_MINUS &sq
-                                                 &nwsk 2 HYPER   &lt 1 DE_HASH  &hmt LSHIFT SPACE                      &hmt_ent RSHIFT RET &lt 1 DE_ASTRK  &td_cw_nw_nw
+                &none         &kp DE_Q  &kp DE_W &kp DE_E        &kp DE_R       &kp DE_T     &kp C_PP     &kp EMOJI    &kp DE_Z            &u_umlaut      &kp DE_I        &o_umlaut       &kp DE_P     &none
+                &none         &hy_a HYPER 0 &hm_s &hml LALT DE_D &hml LGUI DE_F &kp DE_G     &kp C_VOL_DN &kp C_VOL_UP &kp DE_H            &hmr RGUI DE_J &hmr LALT DE_K  &hmr RCTRL DE_L &hy_plus HYPER 0 &none
+                &none         &kp DE_Y  &kp DE_X &kp DE_C        &kp DE_V       &kp DE_B                               &kp DE_N            &kp DE_M       &kp DE_COMMA    &kp DE_DOT      &kp DE_MINUS &none
+                                                 &lt 2 ESC       &lt 1 DE_HASH  &hmt LSHIFT SPACE                      &hmt_ent RSHIFT RET &ht_sq 1 0      &bspcdel
             >;
         };
 
@@ -421,7 +416,7 @@
         raise_layer {
             display-name = "MOUSE";
             bindings = <
-                &bt BT_SEL 0 &bt BT_SEL 1 &bt BT_SEL 2 &trans &trans    &trans  &studio_unlock &trans   &msc SCRL_RIGHT &msc SCRL_UP   &msc SCRL_DOWN &msc SCRL_LEFT &trans &trans
+                &trans       &bt BT_SEL 0 &bt BT_SEL 1 &bt BT_SEL 2 &trans    &trans  &studio_unlock &trans   &msc SCRL_RIGHT &msc SCRL_UP   &msc SCRL_DOWN &msc SCRL_LEFT &trans &trans
                 &trans       &trans       &trans       &trans &mkp LCLK &trans  &trans         &trans   &mmv MOVE_LEFT &mmv MOVE_DOWN &mmv MOVE_UP   &mmv MOVE_RIGHT &trans &trans
                 &trans       &trans       &trans       &trans &mkp RCLK &trans                          &trans         &trans         &trans         &trans          &trans &trans 
                                                        &trans &trans    &trans                          &mkp LCLK      &mkp RCLK      &trans
