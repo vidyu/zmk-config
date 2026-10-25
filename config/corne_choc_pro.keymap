@@ -65,24 +65,24 @@
             // the board. A position list would cut off one of them.
         };
         // Enter only on a short, clean tap: any other key pressed while held
-        // turns it into the modifier, and there is no prior-idle shortcut, so
-        // a mid-sentence Shift never fires a stray Return.
-        hmt_ent: EnterModThumb {
+        // turns it into the layer, and there is no prior-idle shortcut, so
+        // a mid-sentence number never fires a stray Return.
+        lt_ent: EnterLayerThumb {
             compatible = "zmk,behavior-hold-tap";
             #binding-cells = <2>;
             flavor = "hold-preferred";
             tapping-term-ms = <200>;
             quick-tap-ms = <175>;
-            bindings = <&kp>, <&kp>;
+            bindings = <&mo>, <&kp>;
         };
-        // Layer on hold, /? morph on tap: &lt only takes a plain keycode.
-        ht_sq: LayerSlash {
+        // Modifier on hold, /? morph on tap: &mt only takes a plain keycode.
+        mt_sq: ModSlash {
             compatible = "zmk,behavior-hold-tap";
             #binding-cells = <2>;
             flavor = "hold-preferred";
             tapping-term-ms = <200>;
             quick-tap-ms = <175>;
-            bindings = <&mo>, <&sq>;
+            bindings = <&kp>, <&sq>;
         };
     };
 };
@@ -238,6 +238,13 @@
       #binding-cells = <0>;
       tapping-term-ms = <200>;
       bindings = <&mo 2>, <&kp RALT>;
+    };
+    // Hold on the first tap keeps the layer; space waits out the tapping term.
+    td_spc: TapDanceSpace {
+      compatible = "zmk,behavior-tap-dance";
+      #binding-cells = <0>;
+      tapping-term-ms = <200>;
+      bindings = <&lt 1 SPACE>, <&kp DE_DOT>, <&kp DE_QMARK>;
     };
   };
 };
@@ -396,10 +403,10 @@
             // Hyper sits on held A and +. Umlauts are firmware morphs on LALT
             // (D/K), so Hyper builds on RALT and triggers no morph.
             bindings = <
-                &none         &kp DE_Q  &kp DE_W &kp DE_E        &kp DE_R       &kp DE_T     &kp C_PP     &kp EMOJI    &kp DE_Z            &u_umlaut      &kp DE_I        &o_umlaut       &kp DE_P     &none
-                &none         &hy_a HYPER 0 &hm_s &hml LALT DE_D &hml LGUI DE_F &kp DE_G     &kp C_VOL_DN &kp C_VOL_UP &kp DE_H            &hmr RGUI DE_J &hmr LALT DE_K  &hmr RCTRL DE_L &hy_plus HYPER 0 &none
-                &none         &kp DE_Y  &kp DE_X &kp DE_C        &kp DE_V       &kp DE_B                               &kp DE_N            &kp DE_M       &kp DE_COMMA    &kp DE_DOT      &kp DE_MINUS &none
-                                                 &lt 2 TAB       &lt 1 ESC      &hmt LSHIFT SPACE                      &hmt_ent RSHIFT RET &ht_sq 1 0      &bspcdel
+                &none         &kp DE_Q  &kp DE_W &kp DE_E        &kp DE_R       &kp DE_T       &kp C_PP     &kp EMOJI    &kp DE_Z   &u_umlaut           &kp DE_I       &o_umlaut       &kp DE_P     &none
+                &none         &hy_a HYPER 0 &hm_s &hml LALT DE_D &hml LGUI DE_F &kp DE_G       &kp C_VOL_DN &kp C_VOL_UP &kp DE_H   &hmr RGUI DE_J      &hmr LALT DE_K &hmr RCTRL DE_L &hy_plus HYPER 0 &none
+                &none         &kp DE_Y  &kp DE_X &kp DE_C        &kp DE_V       &kp DE_B                                 &kp DE_N   &kp DE_M            &kp DE_COMMA   &kp DE_DOT      &kp DE_MINUS &none
+                                                &lt 2 TAB        &td_spc        &hmt LSHIFT ESC                          &mt_sq RSHIFT 0 &lt_ent 1 RET &bspcdel
             >;
         };
 
@@ -409,7 +416,7 @@
                 &trans &trans          &kp DE_N7        &kp DE_N8        &kp DE_N9        &trans &kp PASSWORD &rgb_ug RGB_TOG &trans   &trans         &trans         &trans           &trans   &trans
                 &trans &kp DE_N0       &hml LCTRL DE_N4 &hml LALT DE_N5  &hml LGUI DE_N6  &trans &kp C_PREV   &kp C_NEXT      &kp LEFT &hmr RGUI DOWN &hmr LALT UP   &hmr RCTRL RIGHT &kp RALT &trans
                 &trans &trans          &kp DE_N1        &kp DE_N2        &kp DE_N3        &trans                              &trans   &trans         &trans         &trans           &trans   &trans
-                                                        &trans           &trans           &trans                              &trans   &trans         &trans
+                                                        &trans           &trans           &trans                              &bspcdel &trans         &trans
             >;
         };
 
