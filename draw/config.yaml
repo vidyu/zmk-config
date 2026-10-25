@@ -96,9 +96,6 @@ parse_config:
     "&kp LG(SPACE)": "🔎"
     "&kp PASSWORD": "🔐"
 
-    # Tap-dance: 1× Space (hold NUMBER), 2× ., 3× ?
-    "&td_spc": { t: Spc, h: NUMBER, s: ". ?" }
-
   trans_legend: { "t": "", "type": "trans" }
 
   zmk_combos:
