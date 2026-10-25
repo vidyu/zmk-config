@@ -152,6 +152,12 @@
       bindings = <&kp DE_PLUS>, <&kp DE_TILDE>;
       mods = <(MOD_LSFT|MOD_RSFT)>;
     };
+    astrk_hash: AsteriskHash {
+      compatible = "zmk,behavior-mod-morph";
+      #binding-cells = <0>;
+      bindings = <&kp DE_ASTRK>, <&kp DE_HASH>;
+      mods = <(MOD_LSFT|MOD_RSFT)>;
+    };
     bspcdel: BackspaceAndDelete {
       compatible = "zmk,behavior-mod-morph";
       #binding-cells = <0>;
@@ -264,16 +270,10 @@
 / {
     combos {
         compatible = "zmk,combos";
-        combo_tab {
-            timeout-ms = <50>;
-            key-positions = <LT4 LT1>;
-            bindings = <&kp TAB>;
-            layers = <0 1>;
-        };
         combo_astrk {
             timeout-ms = <50>;
             key-positions = <RM1 RM4>;
-            bindings = <&kp DE_ASTRK>;
+            bindings = <&astrk_hash>;
             require-prior-idle-ms = <150>;
             layers = <0 1>;
         };
@@ -385,21 +385,21 @@
         default_layer {
             display-name = "QWERTZ";
             // Thumbs, from the outside in:
-            //   left outer   - Esc, hold = MOUSE.
-            //   left middle  - #, hold = NUMBER.
+            //   left outer   - Tab, hold = MOUSE.
+            //   left middle  - Esc, hold = NUMBER.
             //   Space/Return - hold = Shift; use the opposite thumb's Shift
-            //                  for Delete. Shift+Tab = Shift + Q+R combo.
-            //   right middle - / (Shift: ?), hold = NUMBER. * is J+Plus.
-            //   right outer  - Backspace (Shift: Delete). Tab is the Q+R
-            //                  combo; the outer columns are &none to train
-            //                  the 36/38-key layout.
+            //                  for Shift+Tab and Delete.
+            //   right middle - / (Shift: ?), hold = NUMBER. J+Plus is *
+            //                  (Shift: #).
+            //   right outer  - Backspace (Shift: Delete). The outer columns
+            //                  are &none to train the 36/38-key layout.
             // Hyper sits on held A and +. Umlauts are firmware morphs on LALT
             // (D/K), so Hyper builds on RALT and triggers no morph.
             bindings = <
                 &none         &kp DE_Q  &kp DE_W &kp DE_E        &kp DE_R       &kp DE_T     &kp C_PP     &kp EMOJI    &kp DE_Z            &u_umlaut      &kp DE_I        &o_umlaut       &kp DE_P     &none
                 &none         &hy_a HYPER 0 &hm_s &hml LALT DE_D &hml LGUI DE_F &kp DE_G     &kp C_VOL_DN &kp C_VOL_UP &kp DE_H            &hmr RGUI DE_J &hmr LALT DE_K  &hmr RCTRL DE_L &hy_plus HYPER 0 &none
                 &none         &kp DE_Y  &kp DE_X &kp DE_C        &kp DE_V       &kp DE_B                               &kp DE_N            &kp DE_M       &kp DE_COMMA    &kp DE_DOT      &kp DE_MINUS &none
-                                                 &lt 2 ESC       &lt 1 DE_HASH  &hmt LSHIFT SPACE                      &hmt_ent RSHIFT RET &ht_sq 1 0      &bspcdel
+                                                 &lt 2 TAB       &lt 1 ESC      &hmt LSHIFT SPACE                      &hmt_ent RSHIFT RET &ht_sq 1 0      &bspcdel
             >;
         };
 

@@ -103,7 +103,6 @@ parse_config:
     combo_eql: { align: top, o: 0.15 }
     combo_astrk: { align: top, o: 1.75 }
     combo_prcnt: { align: bottom, o: 1.35 }
-    combo_tab: { align: top, o: 0.3 }
 
   zmk_keycode_map:
     # custom mappings
