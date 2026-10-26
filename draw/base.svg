@@ -511,13 +511,13 @@ path.combo { stroke: #7f7f7f; }
 <g transform="translate(350, 215) rotate(24.0)" class="key trans keypos-42">
 <rect rx="6" ry="6" x="-26" y="-40" width="52" height="80" class="key trans"/>
 </g>
-<g transform="translate(490, 215) rotate(-24.0)" class="key keypos-43">
-<rect rx="6" ry="6" x="-26" y="-40" width="52" height="80" class="key"/>
-<text x="0" y="0" class="key tap">Bspc</text>
-<text x="0" y="-38" class="key shifted">Del</text>
+<g transform="translate(490, 215) rotate(-24.0)" class="key trans keypos-43">
+<rect rx="6" ry="6" x="-26" y="-40" width="52" height="80" class="key trans"/>
 </g>
 <g transform="translate(555, 209) rotate(-12.0)" class="key held keypos-44">
 <rect rx="6" ry="6" x="-26" y="-26" width="52" height="52" class="key held"/>
+<text x="0" y="0" class="key held tap">Bspc</text>
+<text x="0" y="-24" class="key held shifted">Del</text>
 </g>
 <g transform="translate(616, 203)" class="key trans keypos-45">
 <rect rx="6" ry="6" x="-26" y="-26" width="52" height="52" class="key trans"/>

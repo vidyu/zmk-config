@@ -418,7 +418,7 @@
                 &trans &trans          &kp DE_N7        &kp DE_N8        &kp DE_N9        &trans &kp PASSWORD &rgb_ug RGB_TOG &trans   &trans         &trans         &trans           &trans   &trans
                 &trans &kp DE_N0       &hml LCTRL DE_N4 &hml LALT DE_N5  &hml LGUI DE_N6  &trans &kp C_PREV   &kp C_NEXT      &kp LEFT &hmr RGUI DOWN &hmr LALT UP   &hmr RCTRL RIGHT &kp RALT &trans
                 &trans &trans          &kp DE_N1        &kp DE_N2        &kp DE_N3        &trans                              &trans   &trans         &trans         &trans           &trans   &trans
-                                                        &trans           &trans           &trans                              &bspcdel &trans         &trans
+                                                        &trans           &trans           &trans                              &trans   &bspcdel       &trans
             >;
         };
 
