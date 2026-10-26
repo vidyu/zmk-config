@@ -64,25 +64,14 @@
             // composing Alt, and macOS Option sequences live on both halves of
             // the board. A position list would cut off one of them.
         };
-        // Enter only on a short, clean tap: any other key pressed while held
-        // turns it into the layer, and there is no prior-idle shortcut, so
-        // a mid-sentence number never fires a stray Return.
-        lt_ent: EnterLayerThumb {
+        // Layer on hold, /? morph on tap: &lt only takes a plain keycode.
+        lt_sq: LayerSlash {
             compatible = "zmk,behavior-hold-tap";
             #binding-cells = <2>;
             flavor = "hold-preferred";
             tapping-term-ms = <200>;
             quick-tap-ms = <175>;
-            bindings = <&mo>, <&kp>;
-        };
-        // Modifier on hold, /? morph on tap: &mt only takes a plain keycode.
-        mt_sq: ModSlash {
-            compatible = "zmk,behavior-hold-tap";
-            #binding-cells = <2>;
-            flavor = "hold-preferred";
-            tapping-term-ms = <200>;
-            quick-tap-ms = <175>;
-            bindings = <&kp>, <&sq>;
+            bindings = <&mo>, <&sq>;
         };
         // Modifier on hold, Bspc/Del morph on tap; tap-then-hold repeats Bspc.
         mt_bspc: ModBackspace {
@@ -248,6 +237,14 @@
       tapping-term-ms = <200>;
       bindings = <&mo 2>, <&kp RALT>;
     };
+    // Hold = RSHIFT, 2× = Enter. A single tap only taps Shift, so a brushed
+    // or too-short Shift press never fires a stray Return.
+    td_ent: TapDanceEnter {
+      compatible = "zmk,behavior-tap-dance";
+      #binding-cells = <0>;
+      tapping-term-ms = <200>;
+      bindings = <&kp RSHIFT>, <&kp RET>;
+    };
   };
 };
 
@@ -408,7 +405,7 @@
                 &none         &kp DE_Q  &kp DE_W &kp DE_E        &kp DE_R       &kp DE_T       &kp C_PP     &kp EMOJI    &kp DE_Z   &u_umlaut           &kp DE_I       &o_umlaut       &kp DE_P     &none
                 &none         &hy_a HYPER 0 &hm_s &hml LALT DE_D &hml LGUI DE_F &kp DE_G       &kp C_VOL_DN &kp C_VOL_UP &kp DE_H   &hmr RGUI DE_J      &hmr LALT DE_K &hmr RCTRL DE_L &hy_plus HYPER 0 &none
                 &none         &kp DE_Y  &kp DE_X &kp DE_C        &kp DE_V       &kp DE_B                                 &kp DE_N   &kp DE_M            &kp DE_COMMA   &kp DE_DOT      &kp DE_MINUS &none
-                                                &lt 2 TAB        &lt 1 ESC      &hmt LSHIFT SPACE                        &mt_sq RSHIFT 0 &lt_ent 1 RET &mt_bspc RALT 0
+                                                &lt 2 TAB        &lt 1 ESC      &hmt LSHIFT SPACE                        &td_ent &lt_sq 1 0 &mt_bspc RALT 0
             >;
         };
 
