@@ -408,7 +408,7 @@
                 &none         &kp DE_Q  &kp DE_W &kp DE_E        &kp DE_R       &kp DE_T       &kp C_PP     &kp EMOJI    &kp DE_Z   &u_umlaut           &kp DE_I       &o_umlaut       &kp DE_P     &none
                 &none         &hy_a HYPER 0 &hm_s &hml LALT DE_D &hml LGUI DE_F &kp DE_G       &kp C_VOL_DN &kp C_VOL_UP &kp DE_H   &hmr RGUI DE_J      &hmr LALT DE_K &hmr RCTRL DE_L &hy_plus HYPER 0 &none
                 &none         &kp DE_Y  &kp DE_X &kp DE_C        &kp DE_V       &kp DE_B                                 &kp DE_N   &kp DE_M            &kp DE_COMMA   &kp DE_DOT      &kp DE_MINUS &none
-                                                &lt 2 TAB        &lt 1 SPACE    &hmt LSHIFT ESC                          &mt_sq RSHIFT 0 &lt_ent 1 RET &mt_bspc RALT 0
+                                                &lt 2 TAB        &lt 1 ESC      &hmt LSHIFT SPACE                        &mt_sq RSHIFT 0 &lt_ent 1 RET &mt_bspc RALT 0
             >;
         };
 
