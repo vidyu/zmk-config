@@ -1,0 +1,182 @@
+layout: {zmk_keyboard: corne_choc_pro_5col, layout_name: five_col_layout}
+layers:
+  QWERTZ:
+    - Q
+    - W
+    - E
+    - R
+    - T
+    - ⏯
+    - 😀
+    - Z
+    - {t: U, s: ü}
+    - I
+    - {t: O, s: ö}
+    - P
+    - {t: A, h: HYPER, s: ä}
+    - {t: S, h: Ctrl, s: ß}
+    - {t: D, h: Alt}
+    - {t: F, h: Gui}
+    - G
+    - 🔉
+    - 🔊
+    - H
+    - {t: J, h: Gui}
+    - {t: K, h: Alt}
+    - {t: L, h: Ctrl}
+    - {t: +, h: HYPER, s: '~'}
+    - Y
+    - X
+    - C
+    - V
+    - B
+    - N
+    - M
+    - ','
+    - .
+    - '-'
+    - {t: ⇥, h: MOUSE}
+    - {t: Esc, h: NUMBER}
+    - {t: Spc, h: Shift}
+    - {t: Enter, h: Shift, s: 2×}
+    - {t: /, h: NUMBER, s: '?'}
+    - {t: Bspc, h: Alt, s: Del}
+  NUMBER:
+    - {type: trans}
+    - {t: '7', s: /}
+    - {t: '8', s: (}
+    - {t: '9', s: )}
+    - {type: trans}
+    - 🔐
+    - RGB TOG
+    - {type: trans}
+    - {type: trans}
+    - {type: trans}
+    - {type: trans}
+    - {type: trans}
+    - {t: '0', s: '='}
+    - {t: '4', h: Ctrl, s: $}
+    - {t: '5', h: Alt, s: '%'}
+    - {t: '6', h: Gui, s: '&'}
+    - {type: trans}
+    - ⏮
+    - ⏭
+    - ←
+    - {t: ↓, h: Gui}
+    - {t: ↑, h: Alt}
+    - {t: →, h: Ctrl}
+    - Alt
+    - {type: trans}
+    - {t: '1', s: '!'}
+    - {t: '2', s: '"'}
+    - {t: '3', s: §}
+    - {type: trans}
+    - {type: trans}
+    - {type: trans}
+    - {type: trans}
+    - {type: trans}
+    - {type: trans}
+    - {type: trans}
+    - {type: held}
+    - {type: trans}
+    - {type: trans}
+    - {t: Bspc, s: Del, type: held}
+    - {type: trans}
+  MOUSE:
+    - BT 1
+    - BT 2
+    - BT 3
+    - {type: trans}
+    - {type: trans}
+    - Studio
+    - {type: trans}
+    - Scroll →
+    - Scroll ↑
+    - Scroll ↓
+    - Scroll ←
+    - {type: trans}
+    - {type: trans}
+    - {type: trans}
+    - {type: trans}
+    - Left Click
+    - {type: trans}
+    - {type: trans}
+    - {type: trans}
+    - Mouse ←
+    - Mouse ↓
+    - Mouse ↑
+    - Mouse →
+    - {type: trans}
+    - {type: trans}
+    - {type: trans}
+    - {type: trans}
+    - Right Click
+    - {type: trans}
+    - {type: trans}
+    - {type: trans}
+    - {type: trans}
+    - {type: trans}
+    - {type: trans}
+    - {type: held}
+    - {type: trans}
+    - {type: trans}
+    - Left Click
+    - Right Click
+    - {type: trans}
+  Combos: ['', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '',
+    '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '',
+    '', '']
+combos:
+  - p: [20, 23]
+    k: {t: '*', s: '#'}
+    l: [Combos]
+    a: top
+    o: 1.75
+  - p: [22, 23]
+    k: {t: \, s: '|'}
+    l: [Combos]
+  - p: [20, 21]
+    k: {t: '[', s: (}
+    l: [Combos]
+  - p: [21, 22]
+    k: {t: ']', s: )}
+    l: [Combos]
+  - p: [30, 31]
+    k: {t: '{', s: <}
+    l: [Combos]
+  - p: [31, 32]
+    k: {t: '}', s: '>'}
+    l: [Combos]
+  - p: [29, 30]
+    k: ^
+    l: [Combos]
+  - p: [8, 10]
+    k: '='
+    l: [Combos]
+    a: top
+    o: 0.15
+  - p: [7, 8]
+    k: '&'
+    l: [Combos]
+  - p: [32, 33]
+    k: $
+    l: [Combos]
+  - p: [21, 31]
+    k: {t: '''', s: '"'}
+    l: [Combos]
+  - p: [20, 22]
+    k: ':'
+    l: [Combos]
+    a: bottom
+    o: 0.25
+  - p: [30, 32]
+    k: '%'
+    l: [Combos]
+    a: bottom
+    o: 1.35
+  - p: [9, 21]
+    k: '!'
+    l: [Combos]
+  - p: [10, 11]
+    k: '@'
+    l: [Combos]

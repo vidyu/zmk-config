@@ -50,3 +50,6 @@ CONFIG_ZMK_STUDIO=y
 
 # Enable pointing device support
 CONFIG_ZMK_POINTING=y
+
+# Improved connection stability (Keebart default)
+CONFIG_ZMK_BLE_EXPERIMENTAL_CONN=y

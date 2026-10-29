@@ -1,0 +1,29 @@
+/*
+ * Corne Choc Pro BT 5-Col, 40 keys. The keymap itself lives in corne.dtsi.
+ *
+ * Keebart's stock 5-col layout (home-row mods, six layer-tap thumbs) is kept
+ * for reference in boards/arm/corne_choc_pro_5col/corne_choc_pro_5col.keymap;
+ * it is not built, this file takes precedence.
+ *
+ * SPDX-License-Identifier: MIT
+ */
+
+#include "key-labels-5col.h"
+
+#define LAYOUT(                                                                \
+    t0, t1, t2, t3, t4, t5, t6, t7, t8, t9, t10, t11,                          \
+    m0, m1, m2, m3, m4, m5, m6, m7, m8, m9, m10, m11,                          \
+    b0, b1, b2, b3, b4, b5, b6, b7, b8, b9,                                    \
+    h0, h1, h2, h3, h4, h5)                                                    \
+    t0 t1 t2 t3 t4 t5 t6 t7 t8 t9 t10 t11                                      \
+    m0 m1 m2 m3 m4 m5 m6 m7 m8 m9 m10 m11                                      \
+    b0 b1 b2 b3 b4 b5 b6 b7 b8 b9                                              \
+    h0 h1 h2 h3 h4 h5
+
+/ {
+    chosen {
+        zmk,physical-layout = &five_col_layout;
+    };
+};
+
+#include "corne.dtsi"

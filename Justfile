@@ -54,17 +54,24 @@ clean-all: clean
 clean-nix:
     nix-collect-garbage --delete-old
 
-# parse & plot keymap
+# parse & plot keymap for both variants (46 keys: base.svg, 40 keys: base_5col.svg)
 draw:
     #!/usr/bin/env bash
     set -euo pipefail
-    keymap -c "{{ draw }}/config.yaml" parse -z "{{ config }}/corne_choc_pro.keymap" --virtual-layers Combos >"{{ draw }}/base.yaml"
-    yq -Yi '.combos.[].l = ["Combos"]' "{{ draw }}/base.yaml"
-    yq -Yi '.layers.NUMBER.[41] = {type: "held"}' "{{ draw }}/base.yaml"
-    yq -Yi '.layers.NUMBER.[44].type = "held"' "{{ draw }}/base.yaml"
-    yq -Yi '.layers.MOUSE.[40] = {type: "held"}' "{{ draw }}/base.yaml"
-    # yq -Yi '.layers.MOUSE.[45] = {type: "held"}' "{{ draw }}/base.yaml"
-    keymap -c "{{ draw }}/config.yaml" draw "{{ draw }}/base.yaml" -d "{{ boards }}/arm/corne_choc_pro/corne_choc_pro-layouts.dtsi" >"{{ draw }}/base.svg"
+    layouts="{{ boards }}/arm/corne_choc_pro/corne_choc_pro-layouts.dtsi"
+    # name, keymap, physical layout, held positions: LH2 LH1 RH1
+    while read -r name keymap layout lh2 lh1 rh1; do
+        yaml="{{ draw }}/$name.yaml"
+        keymap -c "{{ draw }}/config.yaml" parse -z "{{ config }}/$keymap" --virtual-layers Combos >"$yaml"
+        yq -Yi '.combos.[].l = ["Combos"]' "$yaml"
+        yq -Yi ".layers.NUMBER.[$lh1] = {type: \"held\"}" "$yaml"
+        yq -Yi ".layers.NUMBER.[$rh1].type = \"held\"" "$yaml"
+        yq -Yi ".layers.MOUSE.[$lh2] = {type: \"held\"}" "$yaml"
+        keymap -c "{{ draw }}/config.yaml" draw "$yaml" -d "$layouts" -l "$layout" >"{{ draw }}/$name.svg"
+    done <<'EOF'
+    base corne_choc_pro.keymap default_layout 40 41 44
+    base_5col corne_choc_pro_5col.keymap five_col_layout 34 35 38
+    EOF
 
 # preview generated keymap
 preview:

@@ -7,17 +7,32 @@
 #
 ---
 include:
+  # Corne Choc Pro BT, 46 keys, nice!view
   - board: corne_choc_pro_left
     snippet: studio-rpc-usb-uart
     shield: nice_view
     cmake-args: -DCONFIG_ZMK_STUDIO=y
+    artifact-name: corne46_left
   - board: corne_choc_pro_right
     shield: nice_view
     snippet: studio-rpc-usb-uart
+    artifact-name: corne46_right
 
+  # Corne Choc Pro BT 5-Col, 40 keys, no display
+  - board: corne_choc_pro_5col_left
+    snippet: studio-rpc-usb-uart
+    cmake-args: -DCONFIG_ZMK_STUDIO=y
+    artifact-name: corne40_left
+  - board: corne_choc_pro_5col_right
+    snippet: studio-rpc-usb-uart
+    artifact-name: corne40_right
+
+  # Settings reset, same hardware for both variants
   - board: corne_choc_pro_left
     shield: settings_reset
     snippet: studio-rpc-usb-uart
+    artifact-name: corne_settings_reset_left
   - board: corne_choc_pro_right
     shield: settings_reset
     snippet: studio-rpc-usb-uart
+    artifact-name: corne_settings_reset_right

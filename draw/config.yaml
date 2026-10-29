@@ -3,7 +3,6 @@ parse_config:
     - "boards/arm/corne_choc_pro/corne_choc_pro-layouts.dtsi"
   zmk_preamble: |
     #define KEYMAP_DRAWER
-    #include "key-labels.h"
 
   zmk_remove_keycode_prefix:
     - DE_
