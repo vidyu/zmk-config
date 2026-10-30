@@ -86,7 +86,7 @@ layers:
     - BT 1
     - BT 2
     - BT 3
-    - {type: trans}
+    - BT 4
     - {type: trans}
     - Studio
     - {type: trans}
