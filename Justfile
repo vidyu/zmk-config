@@ -65,7 +65,7 @@ draw:
         keymap -c "{{ draw }}/config.yaml" parse -z "{{ config }}/$keymap" --virtual-layers Combos >"$yaml"
         yq -Yi '.combos.[].l = ["Combos"]' "$yaml"
         yq -Yi ".layers.NUMBER.[$lh1] = {type: \"held\"}" "$yaml"
-        yq -Yi ".layers.NUMBER.[$rh1].type = \"held\"" "$yaml"
+        yq -Yi ".layers.NUMBER.[$rh1] = {type: \"held\"}" "$yaml"
         yq -Yi ".layers.MOUSE.[$lh2] = {type: \"held\"}" "$yaml"
         # FN (F1-F12 on the digit positions) is left out to keep the SVG small.
         keymap -c "{{ draw }}/config.yaml" draw "$yaml" -d "$layouts" -l "$layout" -s QWERTZ NUMBER MOUSE Combos >"{{ draw }}/$name.svg"

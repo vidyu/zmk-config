@@ -306,22 +306,22 @@ path.combo { stroke: #7f7f7f; }
 </g>
 <g transform="translate(434, 215) rotate(-24.0)" class="key keypos-37">
 <rect rx="6" ry="6" x="-26" y="-40" width="52" height="80" class="key"/>
-<text x="0" y="0" class="key tap">Enter</text>
+<text x="0" y="0" class="key tap">/</text>
 <text x="0" y="38" class="key hold">Shift</text>
-<text x="0" y="-38" class="key shifted">2×</text>
+<text x="0" y="-38" class="key shifted">2× Ent</text>
 </g>
 <g transform="translate(499, 209) rotate(-12.0)" class="key keypos-38">
 <rect rx="6" ry="6" x="-26" y="-26" width="52" height="52" class="key"/>
-<text x="0" y="0" class="key tap">/</text>
+<text x="0" y="0" class="key tap">Bspc</text>
 <a href="#NUMBER">
 <text x="0" y="24" class="key hold layer-activator">NUMBER</text>
-</a><text x="0" y="-24" class="key shifted">?</text>
+</a><text x="0" y="-24" class="key shifted">Del</text>
 </g>
 <g transform="translate(560, 203)" class="key keypos-39">
 <rect rx="6" ry="6" x="-26" y="-26" width="52" height="52" class="key"/>
-<text x="0" y="0" class="key tap">Bspc</text>
-<text x="0" y="24" class="key hold">Alt</text>
-<text x="0" y="-24" class="key shifted">Del</text>
+<text x="0" y="0" class="key tap">Caps</text>
+<text x="0" y="24" class="key hold">AltGr</text>
+<text x="0" y="-24" class="key shifted">2× Num</text>
 </g>
 </g>
 </g>
@@ -479,8 +479,6 @@ path.combo { stroke: #7f7f7f; }
 </g>
 <g transform="translate(499, 209) rotate(-12.0)" class="key held keypos-38">
 <rect rx="6" ry="6" x="-26" y="-26" width="52" height="52" class="key held"/>
-<text x="0" y="0" class="key held tap">Bspc</text>
-<text x="0" y="-24" class="key held shifted">Del</text>
 </g>
 <g transform="translate(560, 203)" class="key trans keypos-39">
 <rect rx="6" ry="6" x="-26" y="-26" width="52" height="52" class="key trans"/>

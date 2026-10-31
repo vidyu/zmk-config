@@ -38,9 +38,9 @@ layers:
     - {t: ⇥, h: MOUSE}
     - {t: Esc, h: NUMBER}
     - {t: Spc, h: Shift}
-    - {t: Enter, h: Shift, s: 2×}
-    - {t: /, h: NUMBER, s: '?'}
-    - {t: Bspc, h: Alt, s: Del}
+    - {t: /, h: Shift, s: 2× Ent}
+    - {t: Bspc, h: NUMBER, s: Del}
+    - {t: Caps, h: AltGr, s: 2× Num}
   NUMBER:
     - {type: trans}
     - {t: '7', s: /}
@@ -80,7 +80,7 @@ layers:
     - {type: held}
     - {type: trans}
     - {type: trans}
-    - {t: Bspc, s: Del, type: held}
+    - {type: held}
     - {type: trans}
   MOUSE:
     - BT 1
