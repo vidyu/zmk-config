@@ -327,6 +327,7 @@ path.combo { stroke: #7f7f7f; }
 <text x="0" y="0" class="key tap">/</text>
 <text x="0" y="38" class="key hold">Shift</text>
 <text x="0" y="-38" class="key shifted">2× Ent</text>
+<text x="24" y="0" class="key right">?</text>
 </g>
 <g transform="translate(555, 209) rotate(-12.0)" class="key keypos-44">
 <rect rx="6" ry="6" x="-26" y="-26" width="52" height="52" class="key"/>

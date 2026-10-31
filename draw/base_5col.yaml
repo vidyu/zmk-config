@@ -38,7 +38,7 @@ layers:
     - {t: ⇥, h: MOUSE}
     - {t: Esc, h: NUMBER}
     - {t: Spc, h: Shift}
-    - {t: /, h: Shift, s: 2× Ent}
+    - {t: /, h: Shift, s: 2× Ent, right: '?'}
     - {t: Bspc, h: NUMBER, s: Del}
     - {t: Caps, h: AltGr, s: 2× Num}
   NUMBER:
