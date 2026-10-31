@@ -24,6 +24,7 @@ parse_config:
     "&kp DE_N0": { "t": "0", "s": "=" }
 
     "&studio_unlock": "Studio"
+    "&sl 3": "F#"
 
     # Bluetooth bindings
     "&bt BT_SEL 0": BT 1

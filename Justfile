@@ -67,7 +67,8 @@ draw:
         yq -Yi ".layers.NUMBER.[$lh1] = {type: \"held\"}" "$yaml"
         yq -Yi ".layers.NUMBER.[$rh1].type = \"held\"" "$yaml"
         yq -Yi ".layers.MOUSE.[$lh2] = {type: \"held\"}" "$yaml"
-        keymap -c "{{ draw }}/config.yaml" draw "$yaml" -d "$layouts" -l "$layout" >"{{ draw }}/$name.svg"
+        # FN (F1-F12 on the digit positions) is left out to keep the SVG small.
+        keymap -c "{{ draw }}/config.yaml" draw "$yaml" -d "$layouts" -l "$layout" -s QWERTZ NUMBER MOUSE Combos >"{{ draw }}/$name.svg"
     done <<'EOF'
     base corne_choc_pro.keymap default_layout 40 41 44
     base_5col corne_choc_pro_5col.keymap five_col_layout 34 35 38

@@ -48,7 +48,7 @@ layers:
     - {t: '9', s: )}
     - {type: trans}
     - 🔐
-    - RGB TOG
+    - F#
     - {type: trans}
     - {type: trans}
     - {type: trans}
@@ -122,6 +122,47 @@ layers:
     - {type: trans}
     - Left Click
     - Right Click
+    - {type: trans}
+  FN:
+    - {type: trans}
+    - F7
+    - F8
+    - F9
+    - F11
+    - {type: trans}
+    - {type: trans}
+    - {type: trans}
+    - {type: trans}
+    - {type: trans}
+    - {type: trans}
+    - {type: trans}
+    - F10
+    - F4
+    - F5
+    - F6
+    - F12
+    - {type: trans}
+    - {type: trans}
+    - {type: trans}
+    - {type: trans}
+    - {type: trans}
+    - {type: trans}
+    - {type: trans}
+    - {type: trans}
+    - F1
+    - F2
+    - F3
+    - {type: trans}
+    - {type: trans}
+    - {type: trans}
+    - {type: trans}
+    - {type: trans}
+    - {type: trans}
+    - {type: trans}
+    - {type: trans}
+    - {type: trans}
+    - {type: trans}
+    - {type: trans}
     - {type: trans}
   Combos: ['', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '',
     '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '',
