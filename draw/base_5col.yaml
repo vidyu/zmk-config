@@ -38,7 +38,7 @@ layers:
     - {t: ⇥, h: MOUSE}
     - {t: Esc, h: NUMBER}
     - {t: Spc, h: Shift}
-    - {t: /, h: Shift, s: 2× Ent, right: '?'}
+    - {t: /, h: Shift, s: '?', left: \}
     - {t: Bspc, h: NUMBER, s: Del}
     - {t: Caps, h: AltGr, s: 2× Num}
   NUMBER:
@@ -168,6 +168,11 @@ layers:
     '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '',
     '', '']
 combos:
+  - p: [37, 21]
+    k: Enter
+    l: [Combos]
+    a: left
+    o: 1.6
   - p: [20, 23]
     k: {t: '*', s: '#'}
     l: [Combos]

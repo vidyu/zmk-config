@@ -96,9 +96,9 @@ parse_config:
     "&kp LG(SPACE)": "🔎"
     "&kp PASSWORD": "🔐"
 
-    # Tap-dances: tap / hold / 2×
-    "&td_ent": { t: "/", s: "2× Ent", right: "?", h: Shift }
-    "&td_words": { t: Caps, s: "2× Num", h: AltGr }
+    # Hold-taps on the right thumbs: tap / hold (/ 2× tap-dance)
+    "&sft_sq RSHIFT 0": { t: "/", s: "?", left: "\\", h: Shift }
+    "&ralt_words RALT 0": { t: Caps, s: "2× Num", h: AltGr }
 
   trans_legend: { "t": "", "type": "trans" }
 
@@ -107,6 +107,7 @@ parse_config:
     combo_eql: { align: top, o: 0.15 }
     combo_astrk: { align: top, o: 1.75 }
     combo_prcnt: { align: bottom, o: 1.35 }
+    combo_ent: { align: left, o: 1.6 }
 
   zmk_keycode_map:
     # custom mappings

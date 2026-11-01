@@ -72,13 +72,14 @@
             // composing Alt, and macOS Option sequences live on both halves of
             // the board. A position list would cut off one of them.
         };
-        // Shift on hold, /? morph on tap. Sits in the first slot of td_ent.
+        // Shift on hold, / (Shift: ?, Alt: \, Alt+Shift: |) on tap, decided like
+        // the home-row mods. Enter lives on combo_ent (this thumb + K).
         sft_sq: ShiftSlash {
             compatible = "zmk,behavior-hold-tap";
             #binding-cells = <2>;
-            flavor = "hold-preferred";
+            flavor = "balanced";
             tapping-term-ms = <200>;
-            bindings = <&kp>, <&sq>;
+            bindings = <&kp>, <&sq_bsl>;
         };
         // Layer on hold, Bspc/Del morph on tap; tap-then-hold repeats Bspc.
         lt_bspc: LayerBackspace {
@@ -89,13 +90,13 @@
             quick-tap-ms = <175>;
             bindings = <&mo>, <&bspcdel>;
         };
-        // RALT on hold, Caps Word on tap. Sits in the first slot of td_words.
-        ralt_cw: RaltCapsWord {
+        // RALT on hold, decided like the home-row mods; tap goes to td_cw_nw.
+        ralt_words: RaltWords {
             compatible = "zmk,behavior-hold-tap";
             #binding-cells = <2>;
-            flavor = "hold-preferred";
+            flavor = "balanced";
             tapping-term-ms = <200>;
-            bindings = <&kp>, <&caps_word>;
+            bindings = <&kp>, <&td_cw_nw>;
         };
     };
 };
@@ -103,6 +104,14 @@
 
 / {
   behaviors {
+    // Left Alt (held D) turns /? into \|. The morph masks LALT, so macOS sees
+    // no Option - same pattern as the umlauts.
+    sq_bsl: SlashOrBackslash {
+      compatible = "zmk,behavior-mod-morph";
+      #binding-cells = <0>;
+      bindings = <&sq>, <&bsl>;
+      mods = <(MOD_LALT)>;
+    };
     sq: SlashQuestion {
       compatible = "zmk,behavior-mod-morph";
       #binding-cells = <0>;
@@ -252,19 +261,12 @@
       tapping-term-ms = <200>;
       bindings = <&mo 2>, <&kp RALT>;
     };
-    // Tap = / (Shift: ?), hold = RSHIFT, 2× = Enter.
-    td_ent: TapDanceEnter {
+    // Tap of ralt_words: 1× = Caps Word, 2× = Num Word (NUMBER).
+    td_cw_nw: TapDanceCapsNumWord {
       compatible = "zmk,behavior-tap-dance";
       #binding-cells = <0>;
       tapping-term-ms = <200>;
-      bindings = <&sft_sq RSHIFT 0>, <&kp RET>;
-    };
-    // Tap = Caps Word, hold = RALT, 2× = Num Word (NUMBER).
-    td_words: TapDanceWords {
-      compatible = "zmk,behavior-tap-dance";
-      #binding-cells = <0>;
-      tapping-term-ms = <200>;
-      bindings = <&ralt_cw RALT 0>, <&num_word 1>;
+      bindings = <&caps_word>, <&num_word 1>;
     };
   };
 };
@@ -297,6 +299,16 @@
 / {
     combos {
         compatible = "zmk,combos";
+        // Enter: right inner thumb + K. Alt chords press K first, then the
+        // thumb, so they stay outside the 50 ms window; require-prior-idle
+        // keeps typing clean.
+        combo_ent {
+            timeout-ms = <50>;
+            key-positions = <RH0 RM2>;
+            bindings = <&kp RET>;
+            require-prior-idle-ms = <150>;
+            layers = <0 1>;
+        };
         combo_astrk {
             timeout-ms = <50>;
             key-positions = <RM1 RM4>;
@@ -416,7 +428,8 @@
             //   left middle  - Esc, hold = NUMBER.
             //   Space/Return - hold = Shift; use the opposite thumb's Shift
             //                  for ? and Delete.
-            //   right inner  - / (Shift: ?), hold = RSHIFT, 2× = Enter.
+            //   right inner  - / (Shift: ?, held D: \|), hold = RSHIFT.
+            //                  Thumb + K = Enter.
             //   right middle - Backspace (Shift: Delete), hold = NUMBER.
             //                  J+Plus is * (Shift: #).
             //   right outer  - Caps Word, hold = RALT, 2× = Num Word. On the
@@ -427,7 +440,7 @@
                 &kp DE_Q,      &kp DE_W, &kp DE_E,        &kp DE_R,       &kp DE_T,       &kp C_PP,     &kp EMOJI,    &kp DE_Z, &u_umlaut,       &kp DE_I,       &o_umlaut,       &kp DE_P,
                 &hy_a HYPER 0, &hm_s,    &hml LALT DE_D,  &hml LGUI DE_F, &kp DE_G,       &kp C_VOL_DN, &kp C_VOL_UP, &kp DE_H, &hmr RGUI DE_J,  &hmr LALT DE_K, &hmr RCTRL DE_L, &hy_plus HYPER 0,
                 &kp DE_Y,      &kp DE_X, &kp DE_C,        &kp DE_V,       &kp DE_B,                                   &kp DE_N, &kp DE_M,        &kp DE_COMMA,   &kp DE_DOT,      &kp DE_MINUS,
-                                         &lt 2 TAB,       &lt 1 ESC,      &hmt LSHIFT SPACE,                          &td_ent,  &lt_bspc 1 0,    &td_words
+                                         &lt 2 TAB,       &lt 1 ESC,      &hmt LSHIFT SPACE,                          &sft_sq RSHIFT 0, &lt_bspc 1 0,  &ralt_words RALT 0
             )>;
         };
 
