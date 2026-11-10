@@ -87,7 +87,7 @@ layers:
     - BT 2
     - BT 3
     - BT 4
-    - {type: trans}
+    - BT Clear
     - Studio
     - {type: trans}
     - Scroll →
